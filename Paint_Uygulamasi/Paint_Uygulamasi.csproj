@@ -87,5 +87,20 @@
   <ItemGroup>
     <None Include="Resources\sizeicon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paint-brush-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangleicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cembericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\besgenicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -56,16 +56,18 @@ namespace Paint_Uygulamasi
             Application.Exit();
         }
 
-        
+        int X;
+        int Y;
         bool isMouseDown = false;
 
 
         Dikdortgen dikdortgen;
         private void Cizim_Alani_MouseDown(object sender, MouseEventArgs e)
         {
-            
+            X = e.X;
+            Y = e.Y;
             isMouseDown = true;
-            dikdortgen = new Dikdortgen(e.X, e.Y, new Pen(Color.Red, 3));
+            dikdortgen = new Dikdortgen(X, Y, new Pen(Color.Red, 3));
         }
 
         
