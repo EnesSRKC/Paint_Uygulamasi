@@ -55,5 +55,41 @@ namespace Paint_Uygulamasi
         {
             Application.Exit();
         }
+
+        
+        bool isMouseDown = false;
+
+
+        Dikdortgen dikdortgen;
+        private void Cizim_Alani_MouseDown(object sender, MouseEventArgs e)
+        {
+            
+            isMouseDown = true;
+            dikdortgen = new Dikdortgen(e.X, e.Y, new Pen(Color.Red, 3));
+        }
+
+        
+        
+        
+        private void Cizim_Alani_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isMouseDown)
+            {
+                dikdortgen.Guncelle(e.X - X, e.Y - Y);
+                Refresh();
+            }
+        }
+
+        private void Cizim_Alani_MouseUp(object sender, MouseEventArgs e)
+        {
+            dikdortgen.Guncelle(e.X - X, e.Y - Y);
+            isMouseDown = false;
+        }
+
+        private void Cizim_Alani_Paint(object sender, PaintEventArgs e)
+        {
+            if (isMouseDown)
+                dikdortgen.Ciz(e);
+        }
     }
 }

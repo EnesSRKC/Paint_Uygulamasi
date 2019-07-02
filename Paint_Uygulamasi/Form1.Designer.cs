@@ -32,11 +32,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.Cizim_Alani = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,13 +77,17 @@
             this.panel5.Size = new System.Drawing.Size(860, 21);
             this.panel5.TabIndex = 4;
             // 
-            // panel6
+            // Cizim_Alani
             // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(20, 121);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(860, 348);
-            this.panel6.TabIndex = 5;
+            this.Cizim_Alani.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Cizim_Alani.Location = new System.Drawing.Point(20, 121);
+            this.Cizim_Alani.Name = "Cizim_Alani";
+            this.Cizim_Alani.Size = new System.Drawing.Size(860, 348);
+            this.Cizim_Alani.TabIndex = 5;
+            this.Cizim_Alani.Paint += new System.Windows.Forms.PaintEventHandler(this.Cizim_Alani_Paint);
+            this.Cizim_Alani.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cizim_Alani_MouseDown);
+            this.Cizim_Alani.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Cizim_Alani_MouseMove);
+            this.Cizim_Alani.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Cizim_Alani_MouseUp);
             // 
             // panel1
             // 
@@ -98,6 +102,26 @@
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 32);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(894, 68);
+            this.panel7.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(17, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "E N S I";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Paint_Uygulamasi.Properties.Resources.close_black_256x2561;
@@ -111,33 +135,13 @@
             this.pictureBox1.MouseEnter += new System.EventHandler(this.PictureBox1_MouseEnter);
             this.pictureBox1.MouseLeave += new System.EventHandler(this.PictureBox1_MouseLeave);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(17, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "E N S I";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 32);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(894, 68);
-            this.panel7.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.ClientSize = new System.Drawing.Size(894, 490);
-            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.Cizim_Alani);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -160,7 +164,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel Cizim_Alani;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel7;
