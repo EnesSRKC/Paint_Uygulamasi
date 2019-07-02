@@ -37,6 +37,7 @@
             this.RenkPaneli = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pb_RenkSecim = new System.Windows.Forms.PictureBox();
             this.pb_Kalem = new System.Windows.Forms.PictureBox();
             this.pb_Navy = new System.Windows.Forms.PictureBox();
@@ -57,15 +58,17 @@
             this.pb_Yellow = new System.Windows.Forms.PictureBox();
             this.pb_Orange = new System.Windows.Forms.PictureBox();
             this.pb_Red = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pb_Pen = new System.Windows.Forms.PictureBox();
+            this.pb_Besgen = new System.Windows.Forms.PictureBox();
+            this.pb_Cember = new System.Windows.Forms.PictureBox();
+            this.pb_Ucgen = new System.Windows.Forms.PictureBox();
+            this.pb_Dikdortgen = new System.Windows.Forms.PictureBox();
+            this.SekilPaneli = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.RenkPaneli.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_RenkSecim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Kalem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Navy)).BeginInit();
@@ -86,11 +89,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Yellow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Orange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Red)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Besgen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Cember)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Ucgen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Dikdortgen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SekilPaneli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,6 +162,7 @@
             // 
             // RenkPaneli
             // 
+            this.RenkPaneli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RenkPaneli.Controls.Add(this.pb_RenkSecim);
             this.RenkPaneli.Controls.Add(this.pb_Kalem);
             this.RenkPaneli.Controls.Add(this.pb_Navy);
@@ -186,11 +191,12 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panel7.Controls.Add(this.pictureBox6);
-            this.panel7.Controls.Add(this.pictureBox5);
-            this.panel7.Controls.Add(this.pictureBox4);
-            this.panel7.Controls.Add(this.pictureBox3);
-            this.panel7.Controls.Add(this.pictureBox2);
+            this.panel7.Controls.Add(this.panel6);
+            this.panel7.Controls.Add(this.pb_Besgen);
+            this.panel7.Controls.Add(this.pb_Cember);
+            this.panel7.Controls.Add(this.pb_Ucgen);
+            this.panel7.Controls.Add(this.pb_Dikdortgen);
+            this.panel7.Controls.Add(this.SekilPaneli);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(0, 32);
             this.panel7.Name = "panel7";
@@ -202,14 +208,24 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(17, 8);
+            this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "E N S I";
             // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.pb_Pen);
+            this.panel6.Location = new System.Drawing.Point(98, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(120, 65);
+            this.panel6.TabIndex = 5;
+            // 
             // pb_RenkSecim
             // 
+            this.pb_RenkSecim.BackColor = System.Drawing.Color.White;
             this.pb_RenkSecim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_RenkSecim.Location = new System.Drawing.Point(4, 42);
             this.pb_RenkSecim.Name = "pb_RenkSecim";
@@ -236,6 +252,7 @@
             this.pb_Navy.Size = new System.Drawing.Size(18, 16);
             this.pb_Navy.TabIndex = 17;
             this.pb_Navy.TabStop = false;
+            this.pb_Navy.Click += new System.EventHandler(this.Pb_Navy_Click);
             // 
             // pb_LightBlue
             // 
@@ -246,6 +263,7 @@
             this.pb_LightBlue.Size = new System.Drawing.Size(18, 16);
             this.pb_LightBlue.TabIndex = 16;
             this.pb_LightBlue.TabStop = false;
+            this.pb_LightBlue.Click += new System.EventHandler(this.Pb_LightBlue_Click);
             // 
             // pb_DarkRed
             // 
@@ -256,6 +274,7 @@
             this.pb_DarkRed.Size = new System.Drawing.Size(18, 16);
             this.pb_DarkRed.TabIndex = 15;
             this.pb_DarkRed.TabStop = false;
+            this.pb_DarkRed.Click += new System.EventHandler(this.Pb_DarkRed_Click);
             // 
             // pb_Teal
             // 
@@ -266,6 +285,7 @@
             this.pb_Teal.Size = new System.Drawing.Size(18, 16);
             this.pb_Teal.TabIndex = 14;
             this.pb_Teal.TabStop = false;
+            this.pb_Teal.Click += new System.EventHandler(this.Pb_Teal_Click);
             // 
             // pb_Yesil
             // 
@@ -276,6 +296,7 @@
             this.pb_Yesil.Size = new System.Drawing.Size(18, 16);
             this.pb_Yesil.TabIndex = 13;
             this.pb_Yesil.TabStop = false;
+            this.pb_Yesil.Click += new System.EventHandler(this.Pb_Yesil_Click);
             // 
             // pb_ZeytinYesili
             // 
@@ -286,6 +307,7 @@
             this.pb_ZeytinYesili.Size = new System.Drawing.Size(18, 16);
             this.pb_ZeytinYesili.TabIndex = 12;
             this.pb_ZeytinYesili.TabStop = false;
+            this.pb_ZeytinYesili.Click += new System.EventHandler(this.Pb_ZeytinYesili_Click);
             // 
             // pb_Nergis
             // 
@@ -296,6 +318,7 @@
             this.pb_Nergis.Size = new System.Drawing.Size(18, 16);
             this.pb_Nergis.TabIndex = 11;
             this.pb_Nergis.TabStop = false;
+            this.pb_Nergis.Click += new System.EventHandler(this.Pb_Nergis_Click);
             // 
             // pb_Blue
             // 
@@ -306,6 +329,7 @@
             this.pb_Blue.Size = new System.Drawing.Size(18, 16);
             this.pb_Blue.TabIndex = 10;
             this.pb_Blue.TabStop = false;
+            this.pb_Blue.Click += new System.EventHandler(this.Pb_Blue_Click);
             // 
             // pb_DarkAqua
             // 
@@ -316,6 +340,7 @@
             this.pb_DarkAqua.Size = new System.Drawing.Size(18, 16);
             this.pb_DarkAqua.TabIndex = 9;
             this.pb_DarkAqua.TabStop = false;
+            this.pb_DarkAqua.Click += new System.EventHandler(this.Pb_DarkAqua_Click);
             // 
             // pb_Maroon
             // 
@@ -326,6 +351,7 @@
             this.pb_Maroon.Size = new System.Drawing.Size(18, 16);
             this.pb_Maroon.TabIndex = 8;
             this.pb_Maroon.TabStop = false;
+            this.pb_Maroon.Click += new System.EventHandler(this.Pb_Maroon_Click);
             // 
             // pb_DarkLime
             // 
@@ -336,6 +362,7 @@
             this.pb_DarkLime.Size = new System.Drawing.Size(18, 16);
             this.pb_DarkLime.TabIndex = 7;
             this.pb_DarkLime.TabStop = false;
+            this.pb_DarkLime.Click += new System.EventHandler(this.Pb_DarkLime_Click);
             // 
             // pb_DarkYellow
             // 
@@ -346,6 +373,7 @@
             this.pb_DarkYellow.Size = new System.Drawing.Size(18, 16);
             this.pb_DarkYellow.TabIndex = 6;
             this.pb_DarkYellow.TabStop = false;
+            this.pb_DarkYellow.Click += new System.EventHandler(this.Pb_DarkYellow_Click);
             // 
             // pb_Brown
             // 
@@ -356,6 +384,7 @@
             this.pb_Brown.Size = new System.Drawing.Size(18, 16);
             this.pb_Brown.TabIndex = 5;
             this.pb_Brown.TabStop = false;
+            this.pb_Brown.Click += new System.EventHandler(this.Pb_Brown_Click);
             // 
             // pb_Aqua
             // 
@@ -366,6 +395,7 @@
             this.pb_Aqua.Size = new System.Drawing.Size(18, 16);
             this.pb_Aqua.TabIndex = 4;
             this.pb_Aqua.TabStop = false;
+            this.pb_Aqua.Click += new System.EventHandler(this.Pb_Aqua_Click);
             // 
             // pb_Lime
             // 
@@ -376,6 +406,7 @@
             this.pb_Lime.Size = new System.Drawing.Size(18, 16);
             this.pb_Lime.TabIndex = 3;
             this.pb_Lime.TabStop = false;
+            this.pb_Lime.Click += new System.EventHandler(this.Pb_Lime_Click);
             // 
             // pb_Yellow
             // 
@@ -386,6 +417,7 @@
             this.pb_Yellow.Size = new System.Drawing.Size(18, 16);
             this.pb_Yellow.TabIndex = 2;
             this.pb_Yellow.TabStop = false;
+            this.pb_Yellow.Click += new System.EventHandler(this.Pb_Yellow_Click);
             // 
             // pb_Orange
             // 
@@ -396,6 +428,7 @@
             this.pb_Orange.Size = new System.Drawing.Size(18, 16);
             this.pb_Orange.TabIndex = 1;
             this.pb_Orange.TabStop = false;
+            this.pb_Orange.Click += new System.EventHandler(this.Pb_Orange_Click);
             // 
             // pb_Red
             // 
@@ -406,63 +439,91 @@
             this.pb_Red.Size = new System.Drawing.Size(18, 16);
             this.pb_Red.TabIndex = 0;
             this.pb_Red.TabStop = false;
+            this.pb_Red.Click += new System.EventHandler(this.Pb_Red_Click);
             // 
-            // pictureBox6
+            // pb_Pen
             // 
-            this.pictureBox6.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
-            this.pictureBox6.Image = global::Paint_Uygulamasi.Properties.Resources.besgenicon;
-            this.pictureBox6.Location = new System.Drawing.Point(557, 17);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 4;
-            this.pictureBox6.TabStop = false;
+            this.pb_Pen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pb_Pen.Image = global::Paint_Uygulamasi.Properties.Resources.Penicon;
+            this.pb_Pen.Location = new System.Drawing.Point(16, 9);
+            this.pb_Pen.Name = "pb_Pen";
+            this.pb_Pen.Size = new System.Drawing.Size(39, 45);
+            this.pb_Pen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Pen.TabIndex = 0;
+            this.pb_Pen.TabStop = false;
+            this.pb_Pen.Click += new System.EventHandler(this.Pb_Pen_Click);
+            this.pb_Pen.MouseEnter += new System.EventHandler(this.Pb_Pen_MouseEnter);
+            this.pb_Pen.MouseLeave += new System.EventHandler(this.Pb_Pen_MouseLeave);
             // 
-            // pictureBox5
+            // pb_Besgen
             // 
-            this.pictureBox5.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
-            this.pictureBox5.Image = global::Paint_Uygulamasi.Properties.Resources.cembericon;
-            this.pictureBox5.Location = new System.Drawing.Point(513, 17);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 3;
-            this.pictureBox5.TabStop = false;
+            this.pb_Besgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
+            this.pb_Besgen.Image = global::Paint_Uygulamasi.Properties.Resources.besgenicon;
+            this.pb_Besgen.Location = new System.Drawing.Point(557, 17);
+            this.pb_Besgen.Name = "pb_Besgen";
+            this.pb_Besgen.Size = new System.Drawing.Size(38, 35);
+            this.pb_Besgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Besgen.TabIndex = 4;
+            this.pb_Besgen.TabStop = false;
+            this.pb_Besgen.Click += new System.EventHandler(this.Pb_Besgen_Click);
+            this.pb_Besgen.MouseEnter += new System.EventHandler(this.Pb_Besgen_MouseEnter);
+            this.pb_Besgen.MouseLeave += new System.EventHandler(this.Pb_Besgen_MouseLeave);
             // 
-            // pictureBox4
+            // pb_Cember
             // 
-            this.pictureBox4.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
-            this.pictureBox4.Image = global::Paint_Uygulamasi.Properties.Resources.triangleicon;
-            this.pictureBox4.Location = new System.Drawing.Point(469, 17);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
+            this.pb_Cember.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
+            this.pb_Cember.Image = global::Paint_Uygulamasi.Properties.Resources.cembericon;
+            this.pb_Cember.Location = new System.Drawing.Point(513, 17);
+            this.pb_Cember.Name = "pb_Cember";
+            this.pb_Cember.Size = new System.Drawing.Size(38, 35);
+            this.pb_Cember.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Cember.TabIndex = 3;
+            this.pb_Cember.TabStop = false;
+            this.pb_Cember.Click += new System.EventHandler(this.Pb_Cember_Click);
+            this.pb_Cember.MouseEnter += new System.EventHandler(this.Pb_Cember_MouseEnter);
+            this.pb_Cember.MouseLeave += new System.EventHandler(this.Pb_Cember_MouseLeave);
             // 
-            // pictureBox3
+            // pb_Ucgen
             // 
-            this.pictureBox3.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
-            this.pictureBox3.Image = global::Paint_Uygulamasi.Properties.Resources.recticon;
-            this.pictureBox3.Location = new System.Drawing.Point(425, 17);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
+            this.pb_Ucgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
+            this.pb_Ucgen.Image = global::Paint_Uygulamasi.Properties.Resources.triangleicon;
+            this.pb_Ucgen.Location = new System.Drawing.Point(469, 17);
+            this.pb_Ucgen.Name = "pb_Ucgen";
+            this.pb_Ucgen.Size = new System.Drawing.Size(38, 35);
+            this.pb_Ucgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Ucgen.TabIndex = 2;
+            this.pb_Ucgen.TabStop = false;
+            this.pb_Ucgen.Click += new System.EventHandler(this.Pb_Ucgen_Click);
+            this.pb_Ucgen.MouseEnter += new System.EventHandler(this.Pb_Ucgen_MouseEnter);
+            this.pb_Ucgen.MouseLeave += new System.EventHandler(this.Pb_Ucgen_MouseLeave);
             // 
-            // pictureBox2
+            // pb_Dikdortgen
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(417, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(189, 62);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.pb_Dikdortgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
+            this.pb_Dikdortgen.Image = global::Paint_Uygulamasi.Properties.Resources.recticon;
+            this.pb_Dikdortgen.Location = new System.Drawing.Point(425, 17);
+            this.pb_Dikdortgen.Name = "pb_Dikdortgen";
+            this.pb_Dikdortgen.Size = new System.Drawing.Size(38, 35);
+            this.pb_Dikdortgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Dikdortgen.TabIndex = 1;
+            this.pb_Dikdortgen.TabStop = false;
+            this.pb_Dikdortgen.Click += new System.EventHandler(this.Pb_Dikdortgen_Click);
+            this.pb_Dikdortgen.MouseEnter += new System.EventHandler(this.Pb_Dikdortgen_MouseEnter);
+            this.pb_Dikdortgen.MouseLeave += new System.EventHandler(this.Pb_Dikdortgen_MouseLeave);
+            // 
+            // SekilPaneli
+            // 
+            this.SekilPaneli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.SekilPaneli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SekilPaneli.Location = new System.Drawing.Point(417, 3);
+            this.SekilPaneli.Name = "SekilPaneli";
+            this.SekilPaneli.Size = new System.Drawing.Size(189, 62);
+            this.SekilPaneli.TabIndex = 0;
+            this.SekilPaneli.TabStop = false;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.pictureBox1.Image = global::Paint_Uygulamasi.Properties.Resources.close_black_256x2561;
             this.pictureBox1.Location = new System.Drawing.Point(839, 8);
             this.pictureBox1.Name = "pictureBox1";
@@ -495,6 +556,7 @@
             this.panel1.PerformLayout();
             this.RenkPaneli.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_RenkSecim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Kalem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Navy)).EndInit();
@@ -515,11 +577,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Yellow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Orange)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Red)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Besgen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Cember)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Ucgen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Dikdortgen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SekilPaneli)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -556,11 +619,13 @@
         private System.Windows.Forms.PictureBox pb_Yellow;
         private System.Windows.Forms.PictureBox pb_Orange;
         private System.Windows.Forms.PictureBox pb_RenkSecim;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pb_Dikdortgen;
+        private System.Windows.Forms.PictureBox SekilPaneli;
+        private System.Windows.Forms.PictureBox pb_Besgen;
+        private System.Windows.Forms.PictureBox pb_Cember;
+        private System.Windows.Forms.PictureBox pb_Ucgen;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pb_Pen;
     }
 }
 

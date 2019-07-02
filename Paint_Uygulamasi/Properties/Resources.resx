@@ -124,6 +124,9 @@
   <data name="sizeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sizeicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="besgenicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\besgenicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="paint-brush-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paint-brush-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,7 +145,7 @@
   <data name="triangleicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\triangleicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="besgenicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\besgenicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Penicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Penicon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

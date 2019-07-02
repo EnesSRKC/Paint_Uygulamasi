@@ -123,6 +123,16 @@ namespace Paint_Uygulamasi.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Penicon {
+            get {
+                object obj = ResourceManager.GetObject("Penicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap recticon {
             get {
                 object obj = ResourceManager.GetObject("recticon", resourceCulture);

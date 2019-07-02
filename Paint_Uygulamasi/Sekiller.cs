@@ -10,9 +10,17 @@ namespace Paint_Uygulamasi
 {
     class Sekiller
     {
-        public int BaslaX, BaslaY;
-        public int genislik, yukseklik;
-        public Pen kalem;
+        //public int BaslaX, BaslaY;
+        public int BaslaX { get; set; }
+        public int BaslaY { get; set; }
+
+        //public int genislik, yukseklik;
+        public int Genislik { get; set; }
+        public int Yukseklik { get; set; }
+        //public Pen kalem;
+        public Pen Kalem { get; set; }
+
+        public List<Dikdortgen> dikdortgens = new List<Dikdortgen>();
 
     }
 
@@ -22,18 +30,20 @@ namespace Paint_Uygulamasi
         {
             this.BaslaX = x;
             this.BaslaY = y;
-            this.kalem = kalem;
+            this.Kalem = kalem;
             
         }
         public void Ciz(PaintEventArgs e)
         {
-            e.Graphics.DrawRectangle(this.kalem, this.BaslaX, this.BaslaY, this.genislik, this.yukseklik);
+            Rectangle dikdortgen = new Rectangle(this.BaslaX, this.BaslaY, this.Genislik, this.Yukseklik);
+            e.Graphics.DrawRectangle(this.Kalem, dikdortgen);
+
         }
 
         public void Guncelle(int genislik, int yukseklik)
         {
-            this.genislik = genislik;
-            this.yukseklik = yukseklik;
+            this.Genislik = genislik;
+            this.Yukseklik = yukseklik;
         }
        
     }
