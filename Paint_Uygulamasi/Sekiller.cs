@@ -20,8 +20,17 @@ namespace Paint_Uygulamasi
         //public Pen kalem;
         public Pen Kalem { get; set; }
 
-        public List<Dikdortgen> dikdortgens = new List<Dikdortgen>();
+        public virtual void Ciz(PaintEventArgs e)
+        {
 
+        }
+
+        
+        //public List<Dikdortgen> dikdortgens = new List<Dikdortgen>();
+        //public List<Ucgen> ucgens = new List<Ucgen>();
+        public List<Sekiller> sekillers = new List<Sekiller>();
+
+        
     }
 
     class Dikdortgen:Sekiller
@@ -33,7 +42,7 @@ namespace Paint_Uygulamasi
             this.Kalem = kalem;
             
         }
-        public void Ciz(PaintEventArgs e)
+        public override void Ciz(PaintEventArgs e)
         {
             Rectangle dikdortgen = new Rectangle(this.BaslaX, this.BaslaY, this.Genislik, this.Yukseklik);
             e.Graphics.DrawRectangle(this.Kalem, dikdortgen);
@@ -48,5 +57,31 @@ namespace Paint_Uygulamasi
             this.Yukseklik = yukseklik;
         }
        
+    }
+
+    class Ucgen:Sekiller
+    {
+        Point p1,p2,p3;
+        public Ucgen(int x, int y, Pen kalem)
+        {
+            this.BaslaX = x;
+            this.BaslaY = y;
+            this.Kalem = kalem;
+            p1 = new Point(x, y);
+        }
+
+        public override void Ciz(PaintEventArgs e)
+        {
+            e.Graphics.DrawLine(Kalem, p1, p2);
+            e.Graphics.DrawLine(Kalem, p2, p3);
+            e.Graphics.DrawLine(Kalem, p1, p3);
+        }
+        public void Guncelle(int x, int y)
+        {
+            p2 = new Point(x, y);
+            p3 = new Point(BaslaX - (x - BaslaX), y);
+            
+        }
+
     }
 }

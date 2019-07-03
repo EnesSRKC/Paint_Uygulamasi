@@ -25,10 +25,7 @@ namespace Paint_Uygulamasi
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
-        {
-            
-        }
+        
 
         private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -67,12 +64,14 @@ namespace Paint_Uygulamasi
         bool ucgenSecilimi = false;
         bool besgenSecilimi = false;
 
-   
 
 
 
         Dikdortgen dikdortgen;
+        Ucgen ucgen;
+
         Sekiller sekil = new Sekiller();
+        Sekiller yeni;
         Pen pen;
         private void Cizim_Alani_MouseDown(object sender, MouseEventArgs e)
         {
@@ -81,7 +80,15 @@ namespace Paint_Uygulamasi
             isMouseDown = true;
             Color renk = pb_RenkSecim.BackColor;
             pen = new Pen(renk, 3);
-            dikdortgen = new Dikdortgen(X, Y, pen);
+
+            if (dikSecilimi)
+                dikdortgen = new Dikdortgen(X, Y, pen);
+            else if (kalemSecilimi)
+            {
+
+            }
+            else if (ucgenSecilimi)
+                ucgen = new Ucgen(X, Y, pen);
         }
 
 
@@ -117,6 +124,10 @@ namespace Paint_Uygulamasi
                 {
                     
                 }
+                else if (ucgenSecilimi)
+                {
+                    ucgen.Guncelle(e.X, e.Y);
+                }
 
                 Refresh();
 
@@ -126,28 +137,36 @@ namespace Paint_Uygulamasi
         private void Cizim_Alani_MouseUp(object sender, MouseEventArgs e)
         {
             isMouseDown = false;
-            sekil.dikdortgens.Add(dikdortgen);
+            if (dikSecilimi)
+                sekil.sekillers.Add(dikdortgen);
+            else if (ucgenSecilimi)
+                sekil.sekillers.Add(ucgen);
         }
 
         private void Cizim_Alani_Paint(object sender, PaintEventArgs e)
         {
+            
+            
             if (isMouseDown)
             {
-                if (sekil.dikdortgens != null)
+                if (sekil.sekillers != null)
                 {
-                    foreach (var item in sekil.dikdortgens)
+                    foreach (var item in sekil.sekillers)
                     {
                         item.Ciz(e);
                     }
                 }
                 if (dikSecilimi)
                 {
-                    
                     dikdortgen.Ciz(e);
                 }
                 else if (kalemSecilimi)
                 {
                     
+                }
+                else if (ucgenSecilimi)
+                {
+                    ucgen.Ciz(e);
                 }
             }
         }
