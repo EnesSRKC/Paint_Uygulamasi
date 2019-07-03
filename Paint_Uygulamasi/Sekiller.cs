@@ -40,8 +40,10 @@ namespace Paint_Uygulamasi
 
         }
 
-        public void Guncelle(int genislik, int yukseklik)
+        public void Guncelle(int x, int y, int genislik, int yukseklik)
         {
+            this.BaslaX = x;
+            this.BaslaY = y;
             this.Genislik = genislik;
             this.Yukseklik = yukseklik;
         }
