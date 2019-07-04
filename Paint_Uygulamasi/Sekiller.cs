@@ -142,6 +142,7 @@ namespace Paint_Uygulamasi
 
     class Besgen : Sekiller
     {
+        Point p1, p2, p3, p4, p5;
         public Besgen(int x, int y, Pen kalem)
         {
             this.BaslaX = x;
@@ -149,10 +150,22 @@ namespace Paint_Uygulamasi
             this.Kalem = kalem;
         }
 
-        public void Guncelle()
+        public override void Ciz(PaintEventArgs e)
         {
+            e.Graphics.DrawLine(Kalem, p1, p2);
+            e.Graphics.DrawLine(Kalem, p2, p3);
+            e.Graphics.DrawLine(Kalem, p3, p4);
+            e.Graphics.DrawLine(Kalem, p4, p5);
+            e.Graphics.DrawLine(Kalem, p5, p1);
+        }
 
-
+        public void Guncelle(int x, int y)
+        {
+            p1 = new Point(BaslaX + (x -BaslaX)/2, BaslaY);
+            p2 = new Point(x, BaslaY + (y - BaslaY) / 3);
+            p3 = new Point(BaslaX + 3 * (x - BaslaX) / 4, y);
+            p4 = new Point(BaslaX + (x - BaslaX) / 4, y);
+            p5 = new Point(BaslaX, BaslaY + (y - BaslaY) / 3);
         }
     }
 }

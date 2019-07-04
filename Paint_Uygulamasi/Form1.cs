@@ -70,6 +70,7 @@ namespace Paint_Uygulamasi
         Dikdortgen dikdortgen;
         Ucgen ucgen;
         Cember cember;
+        Besgen besgen;
 
         Sekiller sekil = new Sekiller();
         Pen pen;
@@ -91,12 +92,11 @@ namespace Paint_Uygulamasi
                 ucgen = new Ucgen(X, Y, pen);
             else if (cemberSecilimi)
                 cember = new Cember(X, Y, pen);
+            else if (besgenSecilimi)
+                besgen = new Besgen(X, Y, pen);
         }
 
 
-
-
-        
         private void Cizim_Alani_MouseMove(object sender, MouseEventArgs e)
         {
             if (isMouseDown)
@@ -115,6 +115,8 @@ namespace Paint_Uygulamasi
                 }
                 else if (cemberSecilimi)
                     cember.Guncelle(X, Y, e.X - X, e.Y - Y);
+                else if (besgenSecilimi)
+                    besgen.Guncelle(e.X, e.Y);
 
                 Refresh();
 
@@ -130,6 +132,8 @@ namespace Paint_Uygulamasi
                 sekil.sekillers.Add(ucgen);
             else if (cemberSecilimi)
                 sekil.sekillers.Add(cember);
+            else if (besgenSecilimi)
+                sekil.sekillers.Add(besgen);
         }
 
         private void Cizim_Alani_Paint(object sender, PaintEventArgs e)
@@ -155,6 +159,8 @@ namespace Paint_Uygulamasi
                     ucgen.Ciz(e);
                 else if (cemberSecilimi)
                     cember.Ciz(e);
+                else if (besgenSecilimi)
+                    besgen.Ciz(e);
             }
         }
 
