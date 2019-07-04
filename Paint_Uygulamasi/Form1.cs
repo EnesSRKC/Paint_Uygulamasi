@@ -69,9 +69,9 @@ namespace Paint_Uygulamasi
 
         Dikdortgen dikdortgen;
         Ucgen ucgen;
+        Cember cember;
 
         Sekiller sekil = new Sekiller();
-        Sekiller yeni;
         Pen pen;
         private void Cizim_Alani_MouseDown(object sender, MouseEventArgs e)
         {
@@ -89,6 +89,8 @@ namespace Paint_Uygulamasi
             }
             else if (ucgenSecilimi)
                 ucgen = new Ucgen(X, Y, pen);
+            else if (cemberSecilimi)
+                cember = new Cember(X, Y, pen);
         }
 
 
@@ -99,35 +101,26 @@ namespace Paint_Uygulamasi
         {
             if (isMouseDown)
             {
-                if(dikSecilimi)
+                if (dikSecilimi)
                 {
+                    dikdortgen.Guncelle(X, Y, e.X, e.Y);
                     /** BAS *************************** Dikdortgen Cizim **************************************/
-                    if (X < e.X && Y < e.Y)
-                    {
-                        dikdortgen.Guncelle(X, Y, e.X - X, e.Y - Y);
-                    }
-                    else if (X > e.X && Y < e.Y)
-                    {
-                        dikdortgen.Guncelle(e.X, Y,X - e.X, e.Y - Y);
-                    }
-                    else if (X > e.X && Y > e.Y)
-                    {
-                        dikdortgen.Guncelle(e.X, e.Y, X - e.X, Y - e.Y);
-                    }
-                    else if (X < e.X && Y > e.Y)
-                    {
-                        dikdortgen.Guncelle(X, e.Y, e.X - X, Y - e.Y);
-                    }
+
+                    
+                    
+                    
                     /** SON *************************** Dikdortgen Cizim **************************************/
                 }
-                else if(kalemSecilimi)
+                else if (kalemSecilimi)
                 {
-                    
+
                 }
                 else if (ucgenSecilimi)
                 {
                     ucgen.Guncelle(e.X, e.Y);
                 }
+                else if (cemberSecilimi)
+                    cember.Guncelle(X, Y, e.X - X, e.Y - Y);
 
                 Refresh();
 
@@ -141,6 +134,8 @@ namespace Paint_Uygulamasi
                 sekil.sekillers.Add(dikdortgen);
             else if (ucgenSecilimi)
                 sekil.sekillers.Add(ucgen);
+            else if (cemberSecilimi)
+                sekil.sekillers.Add(cember);
         }
 
         private void Cizim_Alani_Paint(object sender, PaintEventArgs e)
@@ -157,17 +152,15 @@ namespace Paint_Uygulamasi
                     }
                 }
                 if (dikSecilimi)
-                {
                     dikdortgen.Ciz(e);
-                }
                 else if (kalemSecilimi)
                 {
-                    
+
                 }
                 else if (ucgenSecilimi)
-                {
                     ucgen.Ciz(e);
-                }
+                else if (cemberSecilimi)
+                    cember.Ciz(e);
             }
         }
 

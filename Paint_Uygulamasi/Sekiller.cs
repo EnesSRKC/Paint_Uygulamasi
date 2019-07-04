@@ -35,10 +35,14 @@ namespace Paint_Uygulamasi
 
     class Dikdortgen:Sekiller
     {
+        int mouseX, mouseY;
+        int basX, basY;
         public Dikdortgen(int x, int y, Pen kalem)
         {
             this.BaslaX = x;
             this.BaslaY = y;
+            basX = x;
+            basY = y;
             this.Kalem = kalem;
             
         }
@@ -49,14 +53,41 @@ namespace Paint_Uygulamasi
 
         }
 
-        public void Guncelle(int x, int y, int genislik, int yukseklik)
+        public void Guncelle(int x, int y, int suanX, int suanY)
         {
-            this.BaslaX = x;
-            this.BaslaY = y;
-            this.Genislik = genislik;
-            this.Yukseklik = yukseklik;
+            
+            if (basX < suanX && basY < suanY)
+            {
+                this.BaslaX = x;
+                this.BaslaY = y;
+                Genislik = suanX - BaslaX;
+                Yukseklik = suanY - BaslaY;
+            }
+            else if (basX > suanX && basY < suanY)
+            {
+                BaslaX = suanX;
+                BaslaY = y;
+                Genislik = basX - suanX;
+                Yukseklik = suanY - basY;
+            }
+            else if (basX > suanX && basY > suanY)
+            {
+                BaslaX = suanX;
+                BaslaY = suanY;
+                Genislik = basX - suanX;
+                Yukseklik = basY - suanY;
+            }
+            else if (basX < suanX && basY > suanY)
+            {
+                BaslaX = x;
+                BaslaY = suanY;
+                Genislik = suanX - basX;
+                Yukseklik = basY - suanY;
+            }
+            //this.Genislik = genislik;
+            //this.Yukseklik = yukseklik;
         }
-       
+
     }
 
     class Ucgen:Sekiller
@@ -83,5 +114,46 @@ namespace Paint_Uygulamasi
             
         }
 
+    }
+
+    class Cember : Sekiller
+    {
+        
+        public Cember(int x, int y, Pen kalem)
+        {
+            this.BaslaX = x;
+            this.BaslaY = y;
+            this.Kalem = kalem;
+        }
+
+        public override void Ciz(PaintEventArgs e)
+        {
+            e.Graphics.DrawEllipse(Kalem, BaslaX, BaslaY, Genislik, Yukseklik);
+        }
+
+        public void Guncelle(int x, int y, int genislik, int yukseklik)
+        {
+            this.BaslaX = x;
+            this.BaslaY = y;
+            this.Genislik = genislik;
+            this.Yukseklik = yukseklik;
+        }
+
+    }
+
+    class Besgen : Sekiller
+    {
+        public Besgen(int x, int y, Pen kalem)
+        {
+            this.BaslaX = x;
+            this.BaslaY = y;
+            this.Kalem = kalem;
+        }
+
+        public void Guncelle()
+        {
+
+
+        }
     }
 }
