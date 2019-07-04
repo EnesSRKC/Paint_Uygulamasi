@@ -104,12 +104,6 @@ namespace Paint_Uygulamasi
                 if (dikSecilimi)
                 {
                     dikdortgen.Guncelle(X, Y, e.X, e.Y);
-                    /** BAS *************************** Dikdortgen Cizim **************************************/
-
-                    
-                    
-                    
-                    /** SON *************************** Dikdortgen Cizim **************************************/
                 }
                 else if (kalemSecilimi)
                 {

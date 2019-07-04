@@ -84,8 +84,7 @@ namespace Paint_Uygulamasi
                 Genislik = suanX - basX;
                 Yukseklik = basY - suanY;
             }
-            //this.Genislik = genislik;
-            //this.Yukseklik = yukseklik;
+            
         }
 
     }
