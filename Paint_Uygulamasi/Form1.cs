@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,7 @@ namespace Paint_Uygulamasi
         Ucgen ucgen;
         Cember cember;
         Besgen besgen;
+        
 
         Sekiller sekil = new Sekiller();
         Pen pen;
@@ -83,22 +85,23 @@ namespace Paint_Uygulamasi
             pen = new Pen(renk, 3);
 
             if (dikSecilimi)
-                dikdortgen = new Dikdortgen(X, Y, pen);
+                dikdortgen = new Dikdortgen("Dikdortgen", X, Y, pen);
             else if (kalemSecilimi)
             {
 
             }
             else if (ucgenSecilimi)
-                ucgen = new Ucgen(X, Y, pen);
+                ucgen = new Ucgen("Ucgen", X, Y, pen);
             else if (cemberSecilimi)
-                cember = new Cember(X, Y, pen);
+                cember = new Cember("Cember", X, Y, pen);
             else if (besgenSecilimi)
-                besgen = new Besgen(X, Y, pen);
+                besgen = new Besgen("Besgen", X, Y, pen);
         }
 
 
         private void Cizim_Alani_MouseMove(object sender, MouseEventArgs e)
         {
+            
             if (isMouseDown)
             {
                 if (dikSecilimi)
@@ -110,9 +113,7 @@ namespace Paint_Uygulamasi
 
                 }
                 else if (ucgenSecilimi)
-                {
                     ucgen.Guncelle(e.X, e.Y);
-                }
                 else if (cemberSecilimi)
                     cember.Guncelle(X, Y, e.X - X, e.Y - Y);
                 else if (besgenSecilimi)
@@ -129,11 +130,17 @@ namespace Paint_Uygulamasi
             if (dikSecilimi)
                 sekil.sekillers.Add(dikdortgen);
             else if (ucgenSecilimi)
+            {
                 sekil.sekillers.Add(ucgen);
+                ucgen.points = ucgen.NoktaGetir();
+            }
             else if (cemberSecilimi)
                 sekil.sekillers.Add(cember);
             else if (besgenSecilimi)
+            {
                 sekil.sekillers.Add(besgen);
+                besgen.points = besgen.NoktaGetir();
+            }
         }
 
         private void Cizim_Alani_Paint(object sender, PaintEventArgs e)
@@ -164,6 +171,50 @@ namespace Paint_Uygulamasi
             }
         }
 
+        private void KaydetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            sfd.InitialDirectory = @"./";
+            sfd.Filter = "text Files (*.txt) | *.txt";
+            sfd.FileName = "*.txt";
+            sfd.DefaultExt = "txt";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Stream fs = sfd.OpenFile();
+                StreamWriter sw = new StreamWriter(fs);
+                foreach (var item in sekil.sekillers)
+                {
+                    if (item.sekilAd == "Dikdortgen")
+                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.Name);
+                    else if (item.sekilAd == "Ucgen")
+                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.Kalem.Color.Name);
+                    else if (item.sekilAd == "Cember")
+                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.Name);
+                    else if (item.sekilAd == "Besgen")
+                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.points[3].X + " " + item.points[3].Y + " " + item.points[4].X + " " + item.points[4].Y + " " + item.Kalem.Color.Name);
+                }
+
+                sw.Close();
+                fs.Close();
+
+            }
+        }
+
+
+
+
+
+        /************************ GORSELLIK ICIN YAZILAN KODLAR *****************************/
+
+
+
+
+
+
+
         private void Pb_Pen_MouseEnter(object sender, EventArgs e)
         {
             pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
@@ -176,7 +227,6 @@ namespace Paint_Uygulamasi
         }
 
 
-        /************************ Gorsellik Icin Click Eventleri *****************************/
         private void Pb_Pen_Click(object sender, EventArgs e)
         {
             kalemSecilimi = true;
@@ -380,5 +430,7 @@ namespace Paint_Uygulamasi
         {
             pb_RenkSecim.BackColor = Color.Navy;
         }
+
+        
     }
 }

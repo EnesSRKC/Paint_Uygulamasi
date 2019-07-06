@@ -10,35 +10,34 @@ namespace Paint_Uygulamasi
 {
     class Sekiller
     {
-        //public int BaslaX, BaslaY;
+        public string sekilAd { get; set; }
         public int BaslaX { get; set; }
         public int BaslaY { get; set; }
-
-        //public int genislik, yukseklik;
         public int Genislik { get; set; }
         public int Yukseklik { get; set; }
-        //public Pen kalem;
+        
         public Pen Kalem { get; set; }
+
 
         public virtual void Ciz(PaintEventArgs e)
         {
 
         }
 
-        
-        //public List<Dikdortgen> dikdortgens = new List<Dikdortgen>();
-        //public List<Ucgen> ucgens = new List<Ucgen>();
+       
         public List<Sekiller> sekillers = new List<Sekiller>();
+
+        public List<Point> points = new List<Point>();
 
         
     }
 
     class Dikdortgen:Sekiller
     {
-        int mouseX, mouseY;
         int basX, basY;
-        public Dikdortgen(int x, int y, Pen kalem)
+        public Dikdortgen(string ad, int x, int y, Pen kalem)
         {
+            this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
             basX = x;
@@ -92,8 +91,9 @@ namespace Paint_Uygulamasi
     class Ucgen:Sekiller
     {
         Point p1,p2,p3;
-        public Ucgen(int x, int y, Pen kalem)
+        public Ucgen(string ad, int x, int y, Pen kalem)
         {
+            this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
             this.Kalem = kalem;
@@ -113,13 +113,24 @@ namespace Paint_Uygulamasi
             
         }
 
+        public List<Point> NoktaGetir()
+        {
+            List<Point> p = new List<Point>();
+            p.Add(p1);
+            p.Add(p2);
+            p.Add(p3);
+
+            return p;
+        }
+
     }
 
     class Cember : Sekiller
     {
         
-        public Cember(int x, int y, Pen kalem)
+        public Cember(string ad, int x, int y, Pen kalem)
         {
+            this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
             this.Kalem = kalem;
@@ -143,8 +154,9 @@ namespace Paint_Uygulamasi
     class Besgen : Sekiller
     {
         Point p1, p2, p3, p4, p5;
-        public Besgen(int x, int y, Pen kalem)
+        public Besgen(string ad, int x, int y, Pen kalem)
         {
+            this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
             this.Kalem = kalem;
@@ -166,6 +178,18 @@ namespace Paint_Uygulamasi
             p3 = new Point(BaslaX + 3 * (x - BaslaX) / 4, y);
             p4 = new Point(BaslaX + (x - BaslaX) / 4, y);
             p5 = new Point(BaslaX, BaslaY + (y - BaslaY) / 3);
+        }
+
+        public List<Point> NoktaGetir()
+        {
+            List<Point> p = new List<Point>();
+            p.Add(p1);
+            p.Add(p2);
+            p.Add(p3);
+            p.Add(p4);
+            p.Add(p5);
+
+            return p;
         }
     }
 }

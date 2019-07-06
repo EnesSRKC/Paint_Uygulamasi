@@ -34,10 +34,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.Cizim_Alani = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.RenkPaneli = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.RenkPaneli = new System.Windows.Forms.Panel();
             this.pb_RenkSecim = new System.Windows.Forms.PictureBox();
             this.pb_Kalem = new System.Windows.Forms.PictureBox();
             this.pb_Navy = new System.Windows.Forms.PictureBox();
@@ -58,6 +56,8 @@
             this.pb_Yellow = new System.Windows.Forms.PictureBox();
             this.pb_Orange = new System.Windows.Forms.PictureBox();
             this.pb_Red = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.pb_Pen = new System.Windows.Forms.PictureBox();
             this.pb_Besgen = new System.Windows.Forms.PictureBox();
             this.pb_Cember = new System.Windows.Forms.PictureBox();
@@ -65,10 +65,14 @@
             this.pb_Dikdortgen = new System.Windows.Forms.PictureBox();
             this.SekilPaneli = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dosyaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kaydetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.açToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dosyatxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.RenkPaneli.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_RenkSecim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Kalem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Navy)).BeginInit();
@@ -89,6 +93,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Yellow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Orange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Red)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Besgen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cember)).BeginInit();
@@ -96,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Dikdortgen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SekilPaneli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -149,16 +156,28 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.RenkPaneli);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(894, 100);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(17, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "E N S I";
             // 
             // RenkPaneli
             // 
@@ -187,41 +206,6 @@
             this.RenkPaneli.Name = "RenkPaneli";
             this.RenkPaneli.Size = new System.Drawing.Size(187, 62);
             this.RenkPaneli.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panel7.Controls.Add(this.panel6);
-            this.panel7.Controls.Add(this.pb_Besgen);
-            this.panel7.Controls.Add(this.pb_Cember);
-            this.panel7.Controls.Add(this.pb_Ucgen);
-            this.panel7.Controls.Add(this.pb_Dikdortgen);
-            this.panel7.Controls.Add(this.SekilPaneli);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 32);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(894, 68);
-            this.panel7.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(12, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "E N S I";
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.pb_Pen);
-            this.panel6.Location = new System.Drawing.Point(98, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(120, 65);
-            this.panel6.TabIndex = 5;
             // 
             // pb_RenkSecim
             // 
@@ -441,6 +425,30 @@
             this.pb_Red.TabStop = false;
             this.pb_Red.Click += new System.EventHandler(this.Pb_Red_Click);
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panel7.Controls.Add(this.panel6);
+            this.panel7.Controls.Add(this.pb_Besgen);
+            this.panel7.Controls.Add(this.pb_Cember);
+            this.panel7.Controls.Add(this.pb_Ucgen);
+            this.panel7.Controls.Add(this.pb_Dikdortgen);
+            this.panel7.Controls.Add(this.SekilPaneli);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 32);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(894, 68);
+            this.panel7.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.pb_Pen);
+            this.panel6.Location = new System.Drawing.Point(98, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(120, 65);
+            this.panel6.TabIndex = 5;
+            // 
             // pb_Pen
             // 
             this.pb_Pen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -535,6 +543,49 @@
             this.pictureBox1.MouseEnter += new System.EventHandler(this.PictureBox1_MouseEnter);
             this.pictureBox1.MouseLeave += new System.EventHandler(this.PictureBox1_MouseLeave);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dosyaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(80, 5);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(59, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dosyaToolStripMenuItem
+            // 
+            this.dosyaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kaydetToolStripMenuItem,
+            this.açToolStripMenuItem});
+            this.dosyaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.dosyaToolStripMenuItem.Name = "dosyaToolStripMenuItem";
+            this.dosyaToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.dosyaToolStripMenuItem.Text = "Dosya";
+            // 
+            // kaydetToolStripMenuItem
+            // 
+            this.kaydetToolStripMenuItem.Name = "kaydetToolStripMenuItem";
+            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kaydetToolStripMenuItem.Text = "Farklı Kaydet";
+            this.kaydetToolStripMenuItem.Click += new System.EventHandler(this.KaydetToolStripMenuItem_Click);
+            // 
+            // açToolStripMenuItem
+            // 
+            this.açToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dosyatxtToolStripMenuItem});
+            this.açToolStripMenuItem.Name = "açToolStripMenuItem";
+            this.açToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.açToolStripMenuItem.Text = "Aç";
+            // 
+            // dosyatxtToolStripMenuItem
+            // 
+            this.dosyatxtToolStripMenuItem.Name = "dosyatxtToolStripMenuItem";
+            this.dosyatxtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dosyatxtToolStripMenuItem.Text = "Dosya (.txt)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,8 +605,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.RenkPaneli.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_RenkSecim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Kalem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Navy)).EndInit();
@@ -576,6 +625,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Yellow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Orange)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Red)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Besgen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cember)).EndInit();
@@ -583,6 +634,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Dikdortgen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SekilPaneli)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -625,6 +678,12 @@
         private System.Windows.Forms.PictureBox pb_Ucgen;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pb_Pen;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem dosyaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kaydetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem açToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dosyatxtToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
