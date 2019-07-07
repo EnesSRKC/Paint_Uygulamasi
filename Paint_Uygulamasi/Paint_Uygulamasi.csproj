@@ -105,5 +105,11 @@
   <ItemGroup>
     <None Include="Resources\Penicon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cell-0-0-480.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Selecticon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

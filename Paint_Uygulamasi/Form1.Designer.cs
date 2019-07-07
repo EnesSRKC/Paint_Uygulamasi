@@ -35,6 +35,12 @@
             this.Cizim_Alani = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pb_Select = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pb_Pen = new System.Windows.Forms.PictureBox();
             this.RenkPaneli = new System.Windows.Forms.Panel();
             this.pb_RenkSecim = new System.Windows.Forms.PictureBox();
             this.pb_Kalem = new System.Windows.Forms.PictureBox();
@@ -56,9 +62,6 @@
             this.pb_Yellow = new System.Windows.Forms.PictureBox();
             this.pb_Orange = new System.Windows.Forms.PictureBox();
             this.pb_Red = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.pb_Pen = new System.Windows.Forms.PictureBox();
             this.pb_Besgen = new System.Windows.Forms.PictureBox();
             this.pb_Cember = new System.Windows.Forms.PictureBox();
             this.pb_Ucgen = new System.Windows.Forms.PictureBox();
@@ -69,9 +72,12 @@
             this.dosyaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kaydetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.açToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dosyatxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Select)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).BeginInit();
             this.RenkPaneli.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_RenkSecim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Kalem)).BeginInit();
@@ -93,9 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Yellow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Orange)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Red)).BeginInit();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Besgen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cember)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Ucgen)).BeginInit();
@@ -157,7 +160,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.RenkPaneli);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.menuStrip1);
@@ -179,8 +181,110 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "E N S I";
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panel7.Controls.Add(this.panel6);
+            this.panel7.Controls.Add(this.RenkPaneli);
+            this.panel7.Controls.Add(this.pb_Besgen);
+            this.panel7.Controls.Add(this.pb_Cember);
+            this.panel7.Controls.Add(this.pb_Ucgen);
+            this.panel7.Controls.Add(this.pb_Dikdortgen);
+            this.panel7.Controls.Add(this.SekilPaneli);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 32);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(894, 68);
+            this.panel7.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.pb_Select);
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.comboBox1);
+            this.panel6.Controls.Add(this.pb_Pen);
+            this.panel6.Location = new System.Drawing.Point(98, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(252, 62);
+            this.panel6.TabIndex = 5;
+            // 
+            // pb_Select
+            // 
+            this.pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.pb_Select.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pb_Select.Image = global::Paint_Uygulamasi.Properties.Resources.Selecticon;
+            this.pb_Select.Location = new System.Drawing.Point(59, 7);
+            this.pb_Select.Name = "pb_Select";
+            this.pb_Select.Size = new System.Drawing.Size(39, 45);
+            this.pb_Select.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Select.TabIndex = 3;
+            this.pb_Select.TabStop = false;
+            this.pb_Select.Click += new System.EventHandler(this.Pb_Select_Click);
+            this.pb_Select.MouseEnter += new System.EventHandler(this.Pb_Select_MouseEnter);
+            this.pb_Select.MouseLeave += new System.EventHandler(this.Pb_Select_MouseLeave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(191, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Boyut:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50"});
+            this.comboBox1.Location = new System.Drawing.Point(186, 28);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(55, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // pb_Pen
+            // 
+            this.pb_Pen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pb_Pen.Image = global::Paint_Uygulamasi.Properties.Resources.Penicon;
+            this.pb_Pen.Location = new System.Drawing.Point(14, 7);
+            this.pb_Pen.Name = "pb_Pen";
+            this.pb_Pen.Size = new System.Drawing.Size(39, 45);
+            this.pb_Pen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Pen.TabIndex = 0;
+            this.pb_Pen.TabStop = false;
+            this.pb_Pen.Click += new System.EventHandler(this.Pb_Pen_Click);
+            this.pb_Pen.MouseEnter += new System.EventHandler(this.Pb_Pen_MouseEnter);
+            this.pb_Pen.MouseLeave += new System.EventHandler(this.Pb_Pen_MouseLeave);
+            // 
             // RenkPaneli
             // 
+            this.RenkPaneli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.RenkPaneli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RenkPaneli.Controls.Add(this.pb_RenkSecim);
             this.RenkPaneli.Controls.Add(this.pb_Kalem);
@@ -202,7 +306,7 @@
             this.RenkPaneli.Controls.Add(this.pb_Yellow);
             this.RenkPaneli.Controls.Add(this.pb_Orange);
             this.RenkPaneli.Controls.Add(this.pb_Red);
-            this.RenkPaneli.Location = new System.Drawing.Point(224, 35);
+            this.RenkPaneli.Location = new System.Drawing.Point(356, 3);
             this.RenkPaneli.Name = "RenkPaneli";
             this.RenkPaneli.Size = new System.Drawing.Size(187, 62);
             this.RenkPaneli.TabIndex = 0;
@@ -425,49 +529,11 @@
             this.pb_Red.TabStop = false;
             this.pb_Red.Click += new System.EventHandler(this.Pb_Red_Click);
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.panel7.Controls.Add(this.panel6);
-            this.panel7.Controls.Add(this.pb_Besgen);
-            this.panel7.Controls.Add(this.pb_Cember);
-            this.panel7.Controls.Add(this.pb_Ucgen);
-            this.panel7.Controls.Add(this.pb_Dikdortgen);
-            this.panel7.Controls.Add(this.SekilPaneli);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 32);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(894, 68);
-            this.panel7.TabIndex = 2;
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.pb_Pen);
-            this.panel6.Location = new System.Drawing.Point(98, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(120, 65);
-            this.panel6.TabIndex = 5;
-            // 
-            // pb_Pen
-            // 
-            this.pb_Pen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_Pen.Image = global::Paint_Uygulamasi.Properties.Resources.Penicon;
-            this.pb_Pen.Location = new System.Drawing.Point(16, 9);
-            this.pb_Pen.Name = "pb_Pen";
-            this.pb_Pen.Size = new System.Drawing.Size(39, 45);
-            this.pb_Pen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Pen.TabIndex = 0;
-            this.pb_Pen.TabStop = false;
-            this.pb_Pen.Click += new System.EventHandler(this.Pb_Pen_Click);
-            this.pb_Pen.MouseEnter += new System.EventHandler(this.Pb_Pen_MouseEnter);
-            this.pb_Pen.MouseLeave += new System.EventHandler(this.Pb_Pen_MouseLeave);
-            // 
             // pb_Besgen
             // 
             this.pb_Besgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
             this.pb_Besgen.Image = global::Paint_Uygulamasi.Properties.Resources.besgenicon;
-            this.pb_Besgen.Location = new System.Drawing.Point(557, 17);
+            this.pb_Besgen.Location = new System.Drawing.Point(691, 18);
             this.pb_Besgen.Name = "pb_Besgen";
             this.pb_Besgen.Size = new System.Drawing.Size(38, 35);
             this.pb_Besgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -481,7 +547,7 @@
             // 
             this.pb_Cember.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
             this.pb_Cember.Image = global::Paint_Uygulamasi.Properties.Resources.cembericon;
-            this.pb_Cember.Location = new System.Drawing.Point(513, 17);
+            this.pb_Cember.Location = new System.Drawing.Point(647, 18);
             this.pb_Cember.Name = "pb_Cember";
             this.pb_Cember.Size = new System.Drawing.Size(38, 35);
             this.pb_Cember.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -495,7 +561,7 @@
             // 
             this.pb_Ucgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
             this.pb_Ucgen.Image = global::Paint_Uygulamasi.Properties.Resources.triangleicon;
-            this.pb_Ucgen.Location = new System.Drawing.Point(469, 17);
+            this.pb_Ucgen.Location = new System.Drawing.Point(603, 18);
             this.pb_Ucgen.Name = "pb_Ucgen";
             this.pb_Ucgen.Size = new System.Drawing.Size(38, 35);
             this.pb_Ucgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -509,7 +575,7 @@
             // 
             this.pb_Dikdortgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
             this.pb_Dikdortgen.Image = global::Paint_Uygulamasi.Properties.Resources.recticon;
-            this.pb_Dikdortgen.Location = new System.Drawing.Point(425, 17);
+            this.pb_Dikdortgen.Location = new System.Drawing.Point(559, 18);
             this.pb_Dikdortgen.Name = "pb_Dikdortgen";
             this.pb_Dikdortgen.Size = new System.Drawing.Size(38, 35);
             this.pb_Dikdortgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -523,7 +589,7 @@
             // 
             this.SekilPaneli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.SekilPaneli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SekilPaneli.Location = new System.Drawing.Point(417, 3);
+            this.SekilPaneli.Location = new System.Drawing.Point(549, 3);
             this.SekilPaneli.Name = "SekilPaneli";
             this.SekilPaneli.Size = new System.Drawing.Size(189, 62);
             this.SekilPaneli.TabIndex = 0;
@@ -568,23 +634,15 @@
             // kaydetToolStripMenuItem
             // 
             this.kaydetToolStripMenuItem.Name = "kaydetToolStripMenuItem";
-            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.kaydetToolStripMenuItem.Text = "Farklı Kaydet";
             this.kaydetToolStripMenuItem.Click += new System.EventHandler(this.KaydetToolStripMenuItem_Click);
             // 
             // açToolStripMenuItem
             // 
-            this.açToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dosyatxtToolStripMenuItem});
             this.açToolStripMenuItem.Name = "açToolStripMenuItem";
-            this.açToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.açToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.açToolStripMenuItem.Text = "Aç";
-            // 
-            // dosyatxtToolStripMenuItem
-            // 
-            this.dosyatxtToolStripMenuItem.Name = "dosyatxtToolStripMenuItem";
-            this.dosyatxtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.dosyatxtToolStripMenuItem.Text = "Dosya (.txt)";
             // 
             // Form1
             // 
@@ -602,8 +660,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Select)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).EndInit();
             this.RenkPaneli.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_RenkSecim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Kalem)).EndInit();
@@ -625,9 +689,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Yellow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Orange)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Red)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Besgen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Cember)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Ucgen)).EndInit();
@@ -682,8 +743,10 @@
         private System.Windows.Forms.ToolStripMenuItem dosyaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kaydetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem açToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dosyatxtToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox pb_Select;
     }
 }
 

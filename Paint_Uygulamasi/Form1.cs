@@ -30,6 +30,7 @@ namespace Paint_Uygulamasi
 
         private void Panel1_MouseDown(object sender, MouseEventArgs e)
         {
+            
 
             //Formu hareket ettirebilmek için yazıldı.
             if (e.Button == MouseButtons.Left)
@@ -64,6 +65,7 @@ namespace Paint_Uygulamasi
         bool cemberSecilimi = false;
         bool ucgenSecilimi = false;
         bool besgenSecilimi = false;
+        bool selSecilimi = false;
 
 
 
@@ -82,7 +84,8 @@ namespace Paint_Uygulamasi
             Y = e.Y;
             isMouseDown = true;
             Color renk = pb_RenkSecim.BackColor;
-            pen = new Pen(renk, 3);
+            int boyut = Convert.ToInt16(comboBox1.Text);
+            pen = new Pen(renk, boyut);
 
             if (dikSecilimi)
                 dikdortgen = new Dikdortgen("Dikdortgen", X, Y, pen);
@@ -173,7 +176,7 @@ namespace Paint_Uygulamasi
 
         private void KaydetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
             SaveFileDialog sfd = new SaveFileDialog();
 
             sfd.InitialDirectory = @"./";
@@ -188,13 +191,13 @@ namespace Paint_Uygulamasi
                 foreach (var item in sekil.sekillers)
                 {
                     if (item.sekilAd == "Dikdortgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.Name);
+                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.Name + " " + item.Kalem.Width);
                     else if (item.sekilAd == "Ucgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.Kalem.Color.Name);
+                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.Kalem.Color.Name + " " + item.Kalem.Width);
                     else if (item.sekilAd == "Cember")
-                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.Name);
+                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.Name + " " + item.Kalem.Width);
                     else if (item.sekilAd == "Besgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.points[3].X + " " + item.points[3].Y + " " + item.points[4].X + " " + item.points[4].Y + " " + item.Kalem.Color.Name);
+                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.points[3].X + " " + item.points[3].Y + " " + item.points[4].X + " " + item.points[4].Y + " " + item.Kalem.Color.Name + " " + item.Kalem.Width);
                 }
 
                 sw.Close();
@@ -234,11 +237,14 @@ namespace Paint_Uygulamasi
             ucgenSecilimi = false;
             cemberSecilimi = false;
             besgenSecilimi = false;
+            selSecilimi = false;
+
             pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
             pb_Ucgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Cember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Besgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Dikdortgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
         }
 
         private void Pb_Dikdortgen_MouseEnter(object sender, EventArgs e)
@@ -268,11 +274,13 @@ namespace Paint_Uygulamasi
             cemberSecilimi = false;
             besgenSecilimi = false;
             kalemSecilimi = false;
+            selSecilimi = false;
 
             pb_Ucgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Cember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Besgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
         }
 
         private void Pb_Ucgen_Click(object sender, EventArgs e)
@@ -282,11 +290,13 @@ namespace Paint_Uygulamasi
             cemberSecilimi = false;
             besgenSecilimi = false;
             kalemSecilimi = false;
+            selSecilimi = false;
 
             pb_Dikdortgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Cember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Besgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
         }
 
         private void Pb_Cember_Click(object sender, EventArgs e)
@@ -296,11 +306,13 @@ namespace Paint_Uygulamasi
             cemberSecilimi = true;
             besgenSecilimi = false;
             kalemSecilimi = false;
+            selSecilimi = false;
 
             pb_Ucgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Dikdortgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Besgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
         }
 
         private void Pb_Besgen_Click(object sender, EventArgs e)
@@ -310,11 +322,13 @@ namespace Paint_Uygulamasi
             cemberSecilimi = false;
             besgenSecilimi = true;
             kalemSecilimi = false;
+            selSecilimi = false;
 
             pb_Ucgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Cember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Dikdortgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
         }
 
         private void Pb_Dikdortgen_MouseLeave(object sender, EventArgs e)
@@ -431,6 +445,36 @@ namespace Paint_Uygulamasi
             pb_RenkSecim.BackColor = Color.Navy;
         }
 
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 4;
+        }
+
+        private void Pb_Select_MouseEnter(object sender, EventArgs e)
+        {
+            pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+        }
+
+        private void Pb_Select_MouseLeave(object sender, EventArgs e)
+        {
+            if(!selSecilimi)
+                pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+        }
+
+        private void Pb_Select_Click(object sender, EventArgs e)
+        {
+            selSecilimi = true;
+            dikSecilimi = false;
+            ucgenSecilimi = false;
+            cemberSecilimi = false;
+            besgenSecilimi = false;
+            kalemSecilimi = false;
+
+            pb_Ucgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Cember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Dikdortgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Besgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+        }
     }
 }

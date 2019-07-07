@@ -73,6 +73,16 @@ namespace Paint_Uygulamasi.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap cell_0_0_480 {
+            get {
+                object obj = ResourceManager.GetObject("cell-0-0-480", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap cembericon {
             get {
                 object obj = ResourceManager.GetObject("cembericon", resourceCulture);
@@ -136,6 +146,16 @@ namespace Paint_Uygulamasi.Properties {
         internal static System.Drawing.Bitmap recticon {
             get {
                 object obj = ResourceManager.GetObject("recticon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap Selecticon {
+            get {
+                object obj = ResourceManager.GetObject("Selecticon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
