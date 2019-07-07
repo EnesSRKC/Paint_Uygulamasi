@@ -323,7 +323,7 @@
             // 
             // pb_Kalem
             // 
-            this.pb_Kalem.Image = global::Paint_Uygulamasi.Properties.Resources.paint_brush_icon1;
+            this.pb_Kalem.Image = global::Paint_Uygulamasi.Properties.Resources.paint_brush_icon;
             this.pb_Kalem.Location = new System.Drawing.Point(4, 3);
             this.pb_Kalem.Name = "pb_Kalem";
             this.pb_Kalem.Size = new System.Drawing.Size(30, 34);
@@ -531,7 +531,6 @@
             // 
             // pb_Besgen
             // 
-            this.pb_Besgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
             this.pb_Besgen.Image = global::Paint_Uygulamasi.Properties.Resources.besgenicon;
             this.pb_Besgen.Location = new System.Drawing.Point(691, 18);
             this.pb_Besgen.Name = "pb_Besgen";
@@ -545,7 +544,6 @@
             // 
             // pb_Cember
             // 
-            this.pb_Cember.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
             this.pb_Cember.Image = global::Paint_Uygulamasi.Properties.Resources.cembericon;
             this.pb_Cember.Location = new System.Drawing.Point(647, 18);
             this.pb_Cember.Name = "pb_Cember";
@@ -559,7 +557,6 @@
             // 
             // pb_Ucgen
             // 
-            this.pb_Ucgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
             this.pb_Ucgen.Image = global::Paint_Uygulamasi.Properties.Resources.triangleicon;
             this.pb_Ucgen.Location = new System.Drawing.Point(603, 18);
             this.pb_Ucgen.Name = "pb_Ucgen";
@@ -573,7 +570,7 @@
             // 
             // pb_Dikdortgen
             // 
-            this.pb_Dikdortgen.BackgroundImage = global::Paint_Uygulamasi.Properties.Resources.recticon;
+            this.pb_Dikdortgen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pb_Dikdortgen.Image = global::Paint_Uygulamasi.Properties.Resources.recticon;
             this.pb_Dikdortgen.Location = new System.Drawing.Point(559, 18);
             this.pb_Dikdortgen.Name = "pb_Dikdortgen";
@@ -598,7 +595,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.pictureBox1.Image = global::Paint_Uygulamasi.Properties.Resources.close_black_256x2561;
+            this.pictureBox1.Image = global::Paint_Uygulamasi.Properties.Resources.close_black_256x256;
             this.pictureBox1.Location = new System.Drawing.Point(839, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(43, 18);

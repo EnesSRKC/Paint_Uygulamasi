@@ -74,12 +74,15 @@ namespace Paint_Uygulamasi
         Ucgen ucgen;
         Cember cember;
         Besgen besgen;
-        
+        Secim secim;
 
         Sekiller sekil = new Sekiller();
         Pen pen;
+
+        Pen secimKalem = new Pen(Color.Gray, 3) { DashPattern = new float[] { 5, 1.5f } };
         private void Cizim_Alani_MouseDown(object sender, MouseEventArgs e)
         {
+            
             X = e.X;
             Y = e.Y;
             isMouseDown = true;
@@ -99,6 +102,22 @@ namespace Paint_Uygulamasi
                 cember = new Cember("Cember", X, Y, pen);
             else if (besgenSecilimi)
                 besgen = new Besgen("Besgen", X, Y, pen);
+            else if (selSecilimi)
+            {
+                
+                if(sekil.sekillers.Count > 0)
+                {
+                    for (int i = sekil.sekillers.Count - 1; i >= 0; i--)
+                    {
+                        if (e.X > sekil.sekillers[i].BaslaX && e.X < sekil.sekillers[i].BaslaX + sekil.sekillers[i].Genislik && e.Y > sekil.sekillers[i].BaslaY && e.Y < sekil.sekillers[i].BaslaY + sekil.sekillers[i].Yukseklik)
+                        {
+                            secim = new Secim(sekil.sekillers[i].BaslaX - 20, sekil.sekillers[i].BaslaY - 20, sekil.sekillers[i].Genislik, sekil.sekillers[i].Yukseklik, secimKalem);
+                            break;
+                        }
+                    }
+                }
+            }
+            Refresh();
         }
 
 
@@ -152,12 +171,9 @@ namespace Paint_Uygulamasi
             
             if (isMouseDown)
             {
-                if (sekil.sekillers != null)
+                foreach (var item in sekil.sekillers)
                 {
-                    foreach (var item in sekil.sekillers)
-                    {
-                        item.Ciz(e);
-                    }
+                    item.Ciz(e);
                 }
                 if (dikSecilimi)
                     dikdortgen.Ciz(e);
@@ -171,6 +187,8 @@ namespace Paint_Uygulamasi
                     cember.Ciz(e);
                 else if (besgenSecilimi)
                     besgen.Ciz(e);
+                else if (selSecilimi)
+                    secim.Ciz(e);
             }
         }
 

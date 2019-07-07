@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace Paint_Uygulamasi
 {
@@ -97,7 +98,6 @@ namespace Paint_Uygulamasi
             this.BaslaX = x;
             this.BaslaY = y;
             this.Kalem = kalem;
-            p1 = new Point(x, y);
         }
 
         public override void Ciz(PaintEventArgs e)
@@ -108,6 +108,7 @@ namespace Paint_Uygulamasi
         }
         public void Guncelle(int x, int y)
         {
+            p1 = new Point(BaslaX, BaslaY);
             p2 = new Point(x, y);
             p3 = new Point(BaslaX - (x - BaslaX), y);
             
@@ -191,5 +192,23 @@ namespace Paint_Uygulamasi
 
             return p;
         }
+    }
+
+    class Secim : Sekiller
+    {
+        public Secim(int x,int y,int genislik, int yukseklik, Pen kalem)
+        {
+            this.Kalem = kalem;
+            this.BaslaX = x;
+            this.BaslaY = y;
+            this.Genislik = genislik+40;
+            this.Yukseklik = yukseklik+40;
+        }
+        
+        public override void Ciz(PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(Kalem, BaslaX, BaslaY, Genislik, Yukseklik);
+        }
+
     }
 }

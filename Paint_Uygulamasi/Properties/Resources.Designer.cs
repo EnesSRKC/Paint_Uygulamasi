@@ -73,16 +73,6 @@ namespace Paint_Uygulamasi.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap cell_0_0_480 {
-            get {
-                object obj = ResourceManager.GetObject("cell-0-0-480", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
         internal static System.Drawing.Bitmap cembericon {
             get {
                 object obj = ResourceManager.GetObject("cembericon", resourceCulture);
@@ -103,29 +93,9 @@ namespace Paint_Uygulamasi.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap close_black_256x2561 {
-            get {
-                object obj = ResourceManager.GetObject("close_black_256x2561", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
         internal static System.Drawing.Bitmap paint_brush_icon {
             get {
                 object obj = ResourceManager.GetObject("paint-brush-icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Bitmap paint_brush_icon1 {
-            get {
-                object obj = ResourceManager.GetObject("paint-brush-icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,16 +126,6 @@ namespace Paint_Uygulamasi.Properties {
         internal static System.Drawing.Bitmap Selecticon {
             get {
                 object obj = ResourceManager.GetObject("Selecticon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Bitmap sizeicon {
-            get {
-                object obj = ResourceManager.GetObject("sizeicon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
