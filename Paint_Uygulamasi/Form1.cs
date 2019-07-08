@@ -219,14 +219,16 @@ namespace Paint_Uygulamasi
             
         }
 
+
+        SaveFileDialog sfd = new SaveFileDialog();
+        OpenFileDialog ofd = new OpenFileDialog();
         private void KaydetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            SaveFileDialog sfd = new SaveFileDialog();
+            
 
             sfd.InitialDirectory = @"./";
             sfd.Filter = "text Files (*.txt) | *.txt";
-            sfd.FileName = "*.txt";
             sfd.DefaultExt = "txt";
 
             if (sfd.ShowDialog() == DialogResult.OK)
@@ -236,13 +238,13 @@ namespace Paint_Uygulamasi
                 foreach (var item in sekil.sekillers)
                 {
                     if (item.sekilAd == "Dikdortgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.Name + " " + item.Kalem.Width);
+                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
                     else if (item.sekilAd == "Ucgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.Kalem.Color.Name + " " + item.Kalem.Width);
+                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
                     else if (item.sekilAd == "Cember")
-                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.Name + " " + item.Kalem.Width);
+                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
                     else if (item.sekilAd == "Besgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.points[3].X + " " + item.points[3].Y + " " + item.points[4].X + " " + item.points[4].Y + " " + item.Kalem.Color.Name + " " + item.Kalem.Width);
+                        sw.WriteLine(item.sekilAd + " : " + item.points[0].Y + " " + item.points[1].X + " " + item.points[2].Y + " " + item.points[4].X + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
                 }
 
                 sw.Close();
@@ -251,7 +253,64 @@ namespace Paint_Uygulamasi
             }
         }
 
-        
+        private void AçToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ofd.Filter = "text Files (*.txt) | *.txt";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                FileStream fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs);
+
+                sekil.sekillers.Clear();
+                string[] veriler = new string[10];
+
+                string veri = sr.ReadLine();
+                while (veri != null)
+                {
+                    veriler = veri.Split(' ');
+
+                    if (veriler[0] == "Dikdortgen")
+                    {
+                        dikdortgen = new Dikdortgen("Dikdortgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(Color.Black));
+                        dikdortgen.Genislik = Convert.ToInt16(veriler[4]);
+                        dikdortgen.Yukseklik = Convert.ToInt16(veriler[5]);
+                        sekil.sekillers.Add(dikdortgen);
+                        Refresh();
+                    }
+                    else if (veriler[0] == "Ucgen")
+                    {
+                        ucgen = new Ucgen("Ucgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(Color.Black));
+                        ucgen.Guncelle(Convert.ToInt16(veriler[4]), Convert.ToInt16(veriler[5]));
+                        sekil.sekillers.Add(ucgen);
+                        Refresh();
+                    }
+                    else if (veriler[0] == "Cember")
+                    {
+                        cember = new Cember("Cember", Convert.ToInt16(veriler[2]),Convert.ToInt16(veriler[3]), new Pen(Color.Black));
+                        cember.Genislik = Convert.ToInt16(veriler[4]);
+                        cember.Yukseklik = Convert.ToInt16(veriler[5]);
+                        sekil.sekillers.Add(cember);
+                        Refresh();
+                    }
+                    else if (veriler[0] == "Besgen")
+                    {
+                        besgen = new Besgen("Besgen", Convert.ToInt16(veriler[5]), Convert.ToInt16(veriler[2]), new Pen(Color.Black));
+                        besgen.Guncelle(Convert.ToInt16(veriler[3]), Convert.ToInt16(veriler[4]));
+                        sekil.sekillers.Add(besgen);
+                        Refresh();
+                    }
+                    
+                    veri = sr.ReadLine();
+                }
+
+
+
+
+                sr.Close();
+                fs.Close();
+            }
+
+        }
 
 
 

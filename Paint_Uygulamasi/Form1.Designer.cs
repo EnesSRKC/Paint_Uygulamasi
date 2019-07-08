@@ -74,6 +74,7 @@
             this.kaydetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.açToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -630,7 +631,7 @@
             this.dosyaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(80, 5);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(59, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(179, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -647,15 +648,20 @@
             // kaydetToolStripMenuItem
             // 
             this.kaydetToolStripMenuItem.Name = "kaydetToolStripMenuItem";
-            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.kaydetToolStripMenuItem.Text = "Farklı Kaydet";
             this.kaydetToolStripMenuItem.Click += new System.EventHandler(this.KaydetToolStripMenuItem_Click);
             // 
             // açToolStripMenuItem
             // 
             this.açToolStripMenuItem.Name = "açToolStripMenuItem";
-            this.açToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.açToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.açToolStripMenuItem.Text = "Aç";
+            this.açToolStripMenuItem.Click += new System.EventHandler(this.AçToolStripMenuItem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -762,6 +768,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pb_Select;
         private System.Windows.Forms.PictureBox pb_Cop;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
