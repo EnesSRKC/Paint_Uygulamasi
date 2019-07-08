@@ -66,6 +66,7 @@ namespace Paint_Uygulamasi
         bool ucgenSecilimi = false;
         bool besgenSecilimi = false;
         bool selSecilimi = false;
+        bool copTiklandimi = false;
 
 
 
@@ -112,6 +113,14 @@ namespace Paint_Uygulamasi
                         if (e.X > sekil.sekillers[i].BaslaX && e.X < sekil.sekillers[i].BaslaX + sekil.sekillers[i].Genislik && e.Y > sekil.sekillers[i].BaslaY && e.Y < sekil.sekillers[i].BaslaY + sekil.sekillers[i].Yukseklik)
                         {
                             secim = new Secim(sekil.sekillers[i].BaslaX - 20, sekil.sekillers[i].BaslaY - 20, sekil.sekillers[i].Genislik, sekil.sekillers[i].Yukseklik, secimKalem);
+                            foreach (var item in sekil.sekillers)
+                            {
+                                if (item == sekil.sekillers[i])
+                                    item.Secilmismi = true;
+                                else
+                                    item.Secilmismi = false;
+                                
+                            }
                             break;
                         }
                     }
@@ -119,6 +128,8 @@ namespace Paint_Uygulamasi
             }
             Refresh();
         }
+
+        
 
 
         private void Cizim_Alani_MouseMove(object sender, MouseEventArgs e)
@@ -165,31 +176,47 @@ namespace Paint_Uygulamasi
             }
         }
 
-        private void Cizim_Alani_Paint(object sender, PaintEventArgs e)
+        private void Pb_Cop_Click(object sender, EventArgs e)
         {
-            
-            
-            if (isMouseDown)
+            if(selSecilimi)
             {
                 foreach (var item in sekil.sekillers)
                 {
-                    item.Ciz(e);
+                    if (item.Secilmismi)
+                    {
+                        sekil.sekillers.Remove(item);
+                        copTiklandimi = true;
+                        Refresh();
+                        break;
+                    }
                 }
-                if (dikSecilimi)
-                    dikdortgen.Ciz(e);
-                else if (kalemSecilimi)
-                {
-
-                }
-                else if (ucgenSecilimi)
-                    ucgen.Ciz(e);
-                else if (cemberSecilimi)
-                    cember.Ciz(e);
-                else if (besgenSecilimi)
-                    besgen.Ciz(e);
-                else if (selSecilimi)
-                    secim.Ciz(e);
+                copTiklandimi = false;
             }
+        }
+
+        private void Cizim_Alani_Paint(object sender, PaintEventArgs e)
+        {
+
+
+            foreach (var item in sekil.sekillers) 
+            {
+                item.Ciz(e);
+            }
+            if (dikSecilimi)
+                dikdortgen.Ciz(e);
+            else if (kalemSecilimi)
+            {
+
+            }
+            else if (ucgenSecilimi)
+                ucgen.Ciz(e);
+            else if (cemberSecilimi)
+                cember.Ciz(e);
+            else if (besgenSecilimi)
+                besgen.Ciz(e);
+            else if (selSecilimi && secim != null && !copTiklandimi)
+                secim.Ciz(e);
+            
         }
 
         private void KaydetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -223,6 +250,8 @@ namespace Paint_Uygulamasi
 
             }
         }
+
+        
 
 
 
@@ -494,5 +523,7 @@ namespace Paint_Uygulamasi
             pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Besgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
         }
+
+        
     }
 }

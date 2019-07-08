@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.pb_Cop = new System.Windows.Forms.PictureBox();
             this.pb_Select = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -76,6 +77,7 @@
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Cop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Select)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).BeginInit();
             this.RenkPaneli.SuspendLayout();
@@ -201,6 +203,7 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.pb_Cop);
             this.panel6.Controls.Add(this.pb_Select);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.comboBox1);
@@ -209,6 +212,19 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(252, 62);
             this.panel6.TabIndex = 5;
+            // 
+            // pb_Cop
+            // 
+            this.pb_Cop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.pb_Cop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pb_Cop.Image = global::Paint_Uygulamasi.Properties.Resources.Copicon;
+            this.pb_Cop.Location = new System.Drawing.Point(104, 7);
+            this.pb_Cop.Name = "pb_Cop";
+            this.pb_Cop.Size = new System.Drawing.Size(76, 45);
+            this.pb_Cop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Cop.TabIndex = 4;
+            this.pb_Cop.TabStop = false;
+            this.pb_Cop.Click += new System.EventHandler(this.Pb_Cop_Click);
             // 
             // pb_Select
             // 
@@ -663,6 +679,7 @@
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Cop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Select)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Pen)).EndInit();
             this.RenkPaneli.ResumeLayout(false);
@@ -744,6 +761,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pb_Select;
+        private System.Windows.Forms.PictureBox pb_Cop;
     }
 }
 

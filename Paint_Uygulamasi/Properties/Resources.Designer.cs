@@ -93,6 +93,16 @@ namespace Paint_Uygulamasi.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Copicon {
+            get {
+                object obj = ResourceManager.GetObject("Copicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap paint_brush_icon {
             get {
                 object obj = ResourceManager.GetObject("paint-brush-icon", resourceCulture);

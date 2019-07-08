@@ -16,7 +16,8 @@ namespace Paint_Uygulamasi
         public int BaslaY { get; set; }
         public int Genislik { get; set; }
         public int Yukseklik { get; set; }
-        
+
+        public bool Secilmismi { get; set; }
         public Pen Kalem { get; set; }
 
 
@@ -38,6 +39,7 @@ namespace Paint_Uygulamasi
         int basX, basY;
         public Dikdortgen(string ad, int x, int y, Pen kalem)
         {
+            this.Secilmismi = false;
             this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
@@ -92,11 +94,13 @@ namespace Paint_Uygulamasi
     class Ucgen:Sekiller
     {
         Point p1,p2,p3;
+        int basX, basY;
         public Ucgen(string ad, int x, int y, Pen kalem)
         {
+            this.Secilmismi = false;
             this.sekilAd = ad;
-            this.BaslaX = x;
-            this.BaslaY = y;
+            this.basX = x;
+            this.basY = y;
             this.Kalem = kalem;
         }
 
@@ -108,10 +112,13 @@ namespace Paint_Uygulamasi
         }
         public void Guncelle(int x, int y)
         {
-            p1 = new Point(BaslaX, BaslaY);
+            p1 = new Point(basX, basY);
             p2 = new Point(x, y);
-            p3 = new Point(BaslaX - (x - BaslaX), y);
-            
+            p3 = new Point(basX - (x - basX), y);
+            this.BaslaX = basX - (x - basX);
+            this.BaslaY = basY;
+            this.Genislik = (x - basX)*2;
+            this.Yukseklik = y - basY;
         }
 
         public List<Point> NoktaGetir()
@@ -131,6 +138,7 @@ namespace Paint_Uygulamasi
         
         public Cember(string ad, int x, int y, Pen kalem)
         {
+            this.Secilmismi = false;
             this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
@@ -155,8 +163,10 @@ namespace Paint_Uygulamasi
     class Besgen : Sekiller
     {
         Point p1, p2, p3, p4, p5;
+
         public Besgen(string ad, int x, int y, Pen kalem)
         {
+            this.Secilmismi = false;
             this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
@@ -179,6 +189,8 @@ namespace Paint_Uygulamasi
             p3 = new Point(BaslaX + 3 * (x - BaslaX) / 4, y);
             p4 = new Point(BaslaX + (x - BaslaX) / 4, y);
             p5 = new Point(BaslaX, BaslaY + (y - BaslaY) / 3);
+            this.Genislik = x - BaslaX;
+            this.Yukseklik = y - BaslaY;
         }
 
         public List<Point> NoktaGetir()

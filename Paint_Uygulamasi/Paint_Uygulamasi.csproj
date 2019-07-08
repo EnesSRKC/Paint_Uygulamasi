@@ -111,5 +111,8 @@
   <ItemGroup>
     <None Include="Resources\Selecticon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
