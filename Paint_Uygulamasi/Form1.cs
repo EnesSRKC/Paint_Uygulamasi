@@ -225,8 +225,6 @@ namespace Paint_Uygulamasi
         private void KaydetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            
-
             sfd.InitialDirectory = @"./";
             sfd.Filter = "text Files (*.txt) | *.txt";
             sfd.DefaultExt = "txt";
@@ -244,7 +242,7 @@ namespace Paint_Uygulamasi
                     else if (item.sekilAd == "Cember")
                         sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
                     else if (item.sekilAd == "Besgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].Y + " " + item.points[1].X + " " + item.points[2].Y + " " + item.points[4].X + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
+                        sw.WriteLine(item.sekilAd + " : " + item.points[0].Y + " " + item.points[1].X + " " + item.points[2].Y + " " + item.points[4].X + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
                 }
 
                 sw.Close();
@@ -264,6 +262,8 @@ namespace Paint_Uygulamasi
                 sekil.sekillers.Clear();
                 string[] veriler = new string[10];
 
+                Pen kalem; 
+
                 string veri = sr.ReadLine();
                 while (veri != null)
                 {
@@ -271,37 +271,37 @@ namespace Paint_Uygulamasi
 
                     if (veriler[0] == "Dikdortgen")
                     {
-                        dikdortgen = new Dikdortgen("Dikdortgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(Color.Black));
+                        dikdortgen = new Dikdortgen("Dikdortgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
                         dikdortgen.Genislik = Convert.ToInt16(veriler[4]);
                         dikdortgen.Yukseklik = Convert.ToInt16(veriler[5]);
                         sekil.sekillers.Add(dikdortgen);
-                        Refresh();
                     }
                     else if (veriler[0] == "Ucgen")
                     {
-                        ucgen = new Ucgen("Ucgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(Color.Black));
+                        ucgen = new Ucgen("Ucgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[8]))))), ((int)(((byte)(Convert.ToInt16(veriler[9]))))), ((int)(((byte)(Convert.ToInt16(veriler[10])))))), Convert.ToInt16(veriler[11])));
                         ucgen.Guncelle(Convert.ToInt16(veriler[4]), Convert.ToInt16(veriler[5]));
                         sekil.sekillers.Add(ucgen);
-                        Refresh();
                     }
                     else if (veriler[0] == "Cember")
                     {
-                        cember = new Cember("Cember", Convert.ToInt16(veriler[2]),Convert.ToInt16(veriler[3]), new Pen(Color.Black));
+                        cember = new Cember("Cember", Convert.ToInt16(veriler[2]),Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
                         cember.Genislik = Convert.ToInt16(veriler[4]);
                         cember.Yukseklik = Convert.ToInt16(veriler[5]);
                         sekil.sekillers.Add(cember);
-                        Refresh();
+                        
                     }
                     else if (veriler[0] == "Besgen")
                     {
-                        besgen = new Besgen("Besgen", Convert.ToInt16(veriler[5]), Convert.ToInt16(veriler[2]), new Pen(Color.Black));
+                        besgen = new Besgen("Besgen", Convert.ToInt16(veriler[5]), Convert.ToInt16(veriler[2]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
                         besgen.Guncelle(Convert.ToInt16(veriler[3]), Convert.ToInt16(veriler[4]));
                         sekil.sekillers.Add(besgen);
-                        Refresh();
+                        
                     }
                     
                     veri = sr.ReadLine();
                 }
+                Refresh();
+
 
 
 
