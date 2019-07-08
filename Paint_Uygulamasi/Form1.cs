@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -176,9 +174,12 @@ namespace Paint_Uygulamasi
             }
         }
 
-        private void Pb_Cop_Click(object sender, EventArgs e)
+        
+
+        private void Pb_Cop_MouseUp(object sender, MouseEventArgs e)
         {
-            if(selSecilimi)
+            pb_Cop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            if (selSecilimi)
             {
                 foreach (var item in sekil.sekillers)
                 {
@@ -220,96 +221,16 @@ namespace Paint_Uygulamasi
         }
 
 
-        SaveFileDialog sfd = new SaveFileDialog();
-        OpenFileDialog ofd = new OpenFileDialog();
+        Islemler islem = new Islemler();
         private void KaydetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            sfd.InitialDirectory = @"./";
-            sfd.Filter = "text Files (*.txt) | *.txt";
-            sfd.DefaultExt = "txt";
-
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                Stream fs = sfd.OpenFile();
-                StreamWriter sw = new StreamWriter(fs);
-                foreach (var item in sekil.sekillers)
-                {
-                    if (item.sekilAd == "Dikdortgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
-                    else if (item.sekilAd == "Ucgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
-                    else if (item.sekilAd == "Cember")
-                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
-                    else if (item.sekilAd == "Besgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].Y + " " + item.points[1].X + " " + item.points[2].Y + " " + item.points[4].X + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
-                }
-
-                sw.Close();
-                fs.Close();
-
-            }
+            islem.DosyaYaz(dikdortgen, ucgen, cember, besgen, sekil.sekillers);
         }
 
         private void AçToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ofd.Filter = "text Files (*.txt) | *.txt";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                FileStream fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
-                StreamReader sr = new StreamReader(fs);
-
-                sekil.sekillers.Clear();
-                string[] veriler = new string[10];
-
-                Pen kalem; 
-
-                string veri = sr.ReadLine();
-                while (veri != null)
-                {
-                    veriler = veri.Split(' ');
-
-                    if (veriler[0] == "Dikdortgen")
-                    {
-                        dikdortgen = new Dikdortgen("Dikdortgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
-                        dikdortgen.Genislik = Convert.ToInt16(veriler[4]);
-                        dikdortgen.Yukseklik = Convert.ToInt16(veriler[5]);
-                        sekil.sekillers.Add(dikdortgen);
-                    }
-                    else if (veriler[0] == "Ucgen")
-                    {
-                        ucgen = new Ucgen("Ucgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[8]))))), ((int)(((byte)(Convert.ToInt16(veriler[9]))))), ((int)(((byte)(Convert.ToInt16(veriler[10])))))), Convert.ToInt16(veriler[11])));
-                        ucgen.Guncelle(Convert.ToInt16(veriler[4]), Convert.ToInt16(veriler[5]));
-                        sekil.sekillers.Add(ucgen);
-                    }
-                    else if (veriler[0] == "Cember")
-                    {
-                        cember = new Cember("Cember", Convert.ToInt16(veriler[2]),Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
-                        cember.Genislik = Convert.ToInt16(veriler[4]);
-                        cember.Yukseklik = Convert.ToInt16(veriler[5]);
-                        sekil.sekillers.Add(cember);
-                        
-                    }
-                    else if (veriler[0] == "Besgen")
-                    {
-                        besgen = new Besgen("Besgen", Convert.ToInt16(veriler[5]), Convert.ToInt16(veriler[2]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
-                        besgen.Guncelle(Convert.ToInt16(veriler[3]), Convert.ToInt16(veriler[4]));
-                        sekil.sekillers.Add(besgen);
-                        
-                    }
-                    
-                    veri = sr.ReadLine();
-                }
-                Refresh();
-
-
-
-
-
-                sr.Close();
-                fs.Close();
-            }
-
+            islem.DosyaOku(dikdortgen, ucgen, cember, besgen, sekil.sekillers);
+            Refresh();
         }
 
 
@@ -581,6 +502,11 @@ namespace Paint_Uygulamasi
             pb_Dikdortgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             pb_Besgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+        }
+
+        private void Pb_Cop_MouseDown(object sender, MouseEventArgs e)
+        {
+            pb_Cop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
         }
 
         

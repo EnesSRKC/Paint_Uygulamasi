@@ -225,7 +225,8 @@
             this.pb_Cop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_Cop.TabIndex = 4;
             this.pb_Cop.TabStop = false;
-            this.pb_Cop.Click += new System.EventHandler(this.Pb_Cop_Click);
+            this.pb_Cop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Pb_Cop_MouseDown);
+            this.pb_Cop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Pb_Cop_MouseUp);
             // 
             // pb_Select
             // 
@@ -631,7 +632,7 @@
             this.dosyaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(80, 5);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(179, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(59, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -648,14 +649,14 @@
             // kaydetToolStripMenuItem
             // 
             this.kaydetToolStripMenuItem.Name = "kaydetToolStripMenuItem";
-            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.kaydetToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.kaydetToolStripMenuItem.Text = "Farklı Kaydet";
             this.kaydetToolStripMenuItem.Click += new System.EventHandler(this.KaydetToolStripMenuItem_Click);
             // 
             // açToolStripMenuItem
             // 
             this.açToolStripMenuItem.Name = "açToolStripMenuItem";
-            this.açToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.açToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.açToolStripMenuItem.Text = "Aç";
             this.açToolStripMenuItem.Click += new System.EventHandler(this.AçToolStripMenuItem_Click);
             // 
