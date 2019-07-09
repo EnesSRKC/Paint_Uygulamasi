@@ -83,16 +83,23 @@ namespace Paint_Uygulamasi
             {
                 Stream fs = sfd.OpenFile();
                 StreamWriter sw = new StreamWriter(fs);
-                foreach (var item in sekiller)
+                try
                 {
-                    if (item.sekilAd == "Dikdortgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
-                    else if (item.sekilAd == "Ucgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
-                    else if (item.sekilAd == "Cember")
-                        sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
-                    else if (item.sekilAd == "Besgen")
-                        sw.WriteLine(item.sekilAd + " : " + item.points[0].Y + " " + item.points[1].X + " " + item.points[2].Y + " " + item.points[4].X + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
+                    foreach (var item in sekiller)
+                    {
+                        if (item.sekilAd == "Dikdortgen")
+                            sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
+                        else if (item.sekilAd == "Ucgen")
+                            sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.points[2].X + " " + item.points[2].Y + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
+                        else if (item.sekilAd == "Cember")
+                            sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
+                        else if (item.sekilAd == "Besgen")
+                            sw.WriteLine(item.sekilAd + " : " + item.points[0].Y + " " + item.points[1].X + " " + item.points[2].Y + " " + item.points[4].X + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
+                    }
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message,"Uyarı");
                 }
 
                 sw.Close();

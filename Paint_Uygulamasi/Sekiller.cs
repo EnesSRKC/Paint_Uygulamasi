@@ -206,6 +206,40 @@ namespace Paint_Uygulamasi
         }
     }
 
+    class Cizgi : Sekiller
+    {
+
+        List<Point> cizgiler = new List<Point>();
+        public Cizgi(string name, int x , int y,Pen kalem)
+        {
+            this.sekilAd = name;
+            this.BaslaX = x;
+            this.BaslaY = y;
+            this.Kalem = kalem;
+            cizgiler.Add(new Point(x, y));
+        }
+
+        public override void Ciz(PaintEventArgs e)
+        {
+            for (int i = 0; i < cizgiler.Count - 2; i++)
+            {
+                e.Graphics.DrawLine(Kalem, cizgiler[i], cizgiler[i + 1]);
+            }
+        }
+        public void Guncelle(int x, int y)
+        {
+            Point p = new Point(x, y);
+            cizgiler.Add(p);
+
+        }
+        public List<Point> NoktaGetir()
+        {
+            return cizgiler;
+        }
+
+
+    }
+
     class Secim : Sekiller
     {
         public Secim(int x,int y,int genislik, int yukseklik, Pen kalem)

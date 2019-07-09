@@ -117,16 +117,16 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(20, 390);
+            this.panel2.Size = new System.Drawing.Size(20, 446);
             this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(880, 100);
+            this.panel3.Location = new System.Drawing.Point(1081, 100);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(14, 390);
+            this.panel3.Size = new System.Drawing.Size(14, 446);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -135,16 +135,16 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(20, 100);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(860, 21);
+            this.panel4.Size = new System.Drawing.Size(1061, 21);
             this.panel4.TabIndex = 3;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(20, 469);
+            this.panel5.Location = new System.Drawing.Point(20, 525);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(860, 21);
+            this.panel5.Size = new System.Drawing.Size(1061, 21);
             this.panel5.TabIndex = 4;
             // 
             // Cizim_Alani
@@ -152,7 +152,7 @@
             this.Cizim_Alani.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Cizim_Alani.Location = new System.Drawing.Point(20, 121);
             this.Cizim_Alani.Name = "Cizim_Alani";
-            this.Cizim_Alani.Size = new System.Drawing.Size(860, 348);
+            this.Cizim_Alani.Size = new System.Drawing.Size(1061, 404);
             this.Cizim_Alani.TabIndex = 5;
             this.Cizim_Alani.Paint += new System.Windows.Forms.PaintEventHandler(this.Cizim_Alani_Paint);
             this.Cizim_Alani.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cizim_Alani_MouseDown);
@@ -169,7 +169,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(894, 100);
+            this.panel1.Size = new System.Drawing.Size(1095, 100);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
             // 
@@ -197,7 +197,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel7.Location = new System.Drawing.Point(0, 32);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(894, 68);
+            this.panel7.Size = new System.Drawing.Size(1095, 68);
             this.panel7.TabIndex = 2;
             // 
             // panel6
@@ -209,9 +209,9 @@
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.comboBox1);
             this.panel6.Controls.Add(this.pb_Pen);
-            this.panel6.Location = new System.Drawing.Point(98, 3);
+            this.panel6.Location = new System.Drawing.Point(153, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(252, 62);
+            this.panel6.Size = new System.Drawing.Size(264, 62);
             this.panel6.TabIndex = 5;
             // 
             // pb_Cop
@@ -249,7 +249,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(191, 9);
+            this.label2.Location = new System.Drawing.Point(199, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 2;
@@ -281,7 +281,7 @@
             "40",
             "45",
             "50"});
-            this.comboBox1.Location = new System.Drawing.Point(186, 28);
+            this.comboBox1.Location = new System.Drawing.Point(194, 28);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(55, 21);
             this.comboBox1.TabIndex = 1;
@@ -324,9 +324,9 @@
             this.RenkPaneli.Controls.Add(this.pb_Yellow);
             this.RenkPaneli.Controls.Add(this.pb_Orange);
             this.RenkPaneli.Controls.Add(this.pb_Red);
-            this.RenkPaneli.Location = new System.Drawing.Point(356, 3);
+            this.RenkPaneli.Location = new System.Drawing.Point(472, 3);
             this.RenkPaneli.Name = "RenkPaneli";
-            this.RenkPaneli.Size = new System.Drawing.Size(187, 62);
+            this.RenkPaneli.Size = new System.Drawing.Size(188, 62);
             this.RenkPaneli.TabIndex = 0;
             // 
             // pb_RenkSecim
@@ -550,7 +550,7 @@
             // pb_Besgen
             // 
             this.pb_Besgen.Image = global::Paint_Uygulamasi.Properties.Resources.besgenicon;
-            this.pb_Besgen.Location = new System.Drawing.Point(691, 18);
+            this.pb_Besgen.Location = new System.Drawing.Point(878, 18);
             this.pb_Besgen.Name = "pb_Besgen";
             this.pb_Besgen.Size = new System.Drawing.Size(38, 35);
             this.pb_Besgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -563,7 +563,7 @@
             // pb_Cember
             // 
             this.pb_Cember.Image = global::Paint_Uygulamasi.Properties.Resources.cembericon;
-            this.pb_Cember.Location = new System.Drawing.Point(647, 18);
+            this.pb_Cember.Location = new System.Drawing.Point(822, 18);
             this.pb_Cember.Name = "pb_Cember";
             this.pb_Cember.Size = new System.Drawing.Size(38, 35);
             this.pb_Cember.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -576,7 +576,7 @@
             // pb_Ucgen
             // 
             this.pb_Ucgen.Image = global::Paint_Uygulamasi.Properties.Resources.triangleicon;
-            this.pb_Ucgen.Location = new System.Drawing.Point(603, 18);
+            this.pb_Ucgen.Location = new System.Drawing.Point(767, 18);
             this.pb_Ucgen.Name = "pb_Ucgen";
             this.pb_Ucgen.Size = new System.Drawing.Size(38, 35);
             this.pb_Ucgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -590,7 +590,7 @@
             // 
             this.pb_Dikdortgen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pb_Dikdortgen.Image = global::Paint_Uygulamasi.Properties.Resources.recticon;
-            this.pb_Dikdortgen.Location = new System.Drawing.Point(559, 18);
+            this.pb_Dikdortgen.Location = new System.Drawing.Point(713, 18);
             this.pb_Dikdortgen.Name = "pb_Dikdortgen";
             this.pb_Dikdortgen.Size = new System.Drawing.Size(38, 35);
             this.pb_Dikdortgen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -604,9 +604,9 @@
             // 
             this.SekilPaneli.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.SekilPaneli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SekilPaneli.Location = new System.Drawing.Point(549, 3);
+            this.SekilPaneli.Location = new System.Drawing.Point(696, 3);
             this.SekilPaneli.Name = "SekilPaneli";
-            this.SekilPaneli.Size = new System.Drawing.Size(189, 62);
+            this.SekilPaneli.Size = new System.Drawing.Size(238, 62);
             this.SekilPaneli.TabIndex = 0;
             this.SekilPaneli.TabStop = false;
             // 
@@ -614,7 +614,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.pictureBox1.Image = global::Paint_Uygulamasi.Properties.Resources.close_black_256x256;
-            this.pictureBox1.Location = new System.Drawing.Point(839, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(1038, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(43, 18);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -669,7 +669,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(894, 490);
+            this.ClientSize = new System.Drawing.Size(1095, 546);
             this.Controls.Add(this.Cizim_Alani);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);

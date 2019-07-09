@@ -74,14 +74,16 @@ namespace Paint_Uygulamasi
         Cember cember;
         Besgen besgen;
         Secim secim;
+        Cizgi cizgi;
 
         Sekiller sekil = new Sekiller();
         Pen pen;
+        public Graphics g;
 
         Pen secimKalem = new Pen(Color.Gray, 3) { DashPattern = new float[] { 5, 1.5f } };
         private void Cizim_Alani_MouseDown(object sender, MouseEventArgs e)
         {
-            
+            g = Cizim_Alani.CreateGraphics();
             X = e.X;
             Y = e.Y;
             isMouseDown = true;
@@ -92,9 +94,7 @@ namespace Paint_Uygulamasi
             if (dikSecilimi)
                 dikdortgen = new Dikdortgen("Dikdortgen", X, Y, pen);
             else if (kalemSecilimi)
-            {
-
-            }
+                cizgi = new Cizgi("Cizgi", X, Y, pen);
             else if (ucgenSecilimi)
                 ucgen = new Ucgen("Ucgen", X, Y, pen);
             else if (cemberSecilimi)
@@ -108,6 +108,7 @@ namespace Paint_Uygulamasi
                 {
                     for (int i = sekil.sekillers.Count - 1; i >= 0; i--)
                     {
+                        //Sekil koordinatlarinin icerisine tiklanip tiklanmadigi kontrol ediliyor.
                         if (e.X > sekil.sekillers[i].BaslaX && e.X < sekil.sekillers[i].BaslaX + sekil.sekillers[i].Genislik && e.Y > sekil.sekillers[i].BaslaY && e.Y < sekil.sekillers[i].BaslaY + sekil.sekillers[i].Yukseklik)
                         {
                             secim = new Secim(sekil.sekillers[i].BaslaX - 20, sekil.sekillers[i].BaslaY - 20, sekil.sekillers[i].Genislik, sekil.sekillers[i].Yukseklik, secimKalem);
@@ -138,19 +139,30 @@ namespace Paint_Uygulamasi
                 if (dikSecilimi)
                 {
                     dikdortgen.Guncelle(X, Y, e.X, e.Y);
+                    Refresh();
+
                 }
                 else if (kalemSecilimi)
                 {
-
+                    cizgi.Guncelle(e.X, e.Y);
+                    Refresh();
                 }
                 else if (ucgenSecilimi)
+                {
                     ucgen.Guncelle(e.X, e.Y);
+                    Refresh();
+                }
                 else if (cemberSecilimi)
+                {
                     cember.Guncelle(X, Y, e.X - X, e.Y - Y);
+                    Refresh();
+                }
                 else if (besgenSecilimi)
+                {
                     besgen.Guncelle(e.X, e.Y);
+                    Refresh();
+                }
 
-                Refresh();
 
             }
         }
@@ -172,9 +184,12 @@ namespace Paint_Uygulamasi
                 sekil.sekillers.Add(besgen);
                 besgen.points = besgen.NoktaGetir();
             }
+            else if (kalemSecilimi)
+            {
+                sekil.sekillers.Add(cizgi);
+                cizgi.points = cizgi.NoktaGetir();
+            }
         }
-
-        
 
         private void Pb_Cop_MouseUp(object sender, MouseEventArgs e)
         {
@@ -198,7 +213,6 @@ namespace Paint_Uygulamasi
         private void Cizim_Alani_Paint(object sender, PaintEventArgs e)
         {
 
-
             foreach (var item in sekil.sekillers) 
             {
                 item.Ciz(e);
@@ -206,9 +220,7 @@ namespace Paint_Uygulamasi
             if (dikSecilimi)
                 dikdortgen.Ciz(e);
             else if (kalemSecilimi)
-            {
-
-            }
+                cizgi.Ciz(e);
             else if (ucgenSecilimi)
                 ucgen.Ciz(e);
             else if (cemberSecilimi)
@@ -217,7 +229,7 @@ namespace Paint_Uygulamasi
                 besgen.Ciz(e);
             else if (selSecilimi && secim != null && !copTiklandimi)
                 secim.Ciz(e);
-            
+
         }
 
 
