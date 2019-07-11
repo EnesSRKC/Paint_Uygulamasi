@@ -78,12 +78,11 @@ namespace Paint_Uygulamasi
 
         Sekiller sekil = new Sekiller();
         Pen pen;
-        public Graphics g;
 
         Pen secimKalem = new Pen(Color.Gray, 3) { DashPattern = new float[] { 5, 1.5f } };
         private void Cizim_Alani_MouseDown(object sender, MouseEventArgs e)
         {
-            g = Cizim_Alani.CreateGraphics();
+            
             X = e.X;
             Y = e.Y;
             isMouseDown = true;
@@ -236,12 +235,26 @@ namespace Paint_Uygulamasi
         Islemler islem = new Islemler();
         private void KaydetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            islem.DosyaYaz(dikdortgen, ucgen, cember, besgen, sekil.sekillers);
+            islem.DosyaYaz(dikdortgen, ucgen, cember, besgen, cizgi, sekil.sekillers);
         }
 
         private void AçToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            islem.DosyaOku(dikdortgen, ucgen, cember, besgen, sekil.sekillers);
+            dikSecilimi = false;
+            ucgenSecilimi = false;
+            cemberSecilimi = false;
+            besgenSecilimi = false;
+            kalemSecilimi = false;
+            selSecilimi = false;
+
+            pb_Pen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Ucgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Cember.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Besgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Dikdortgen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            pb_Select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+
+            islem.DosyaOku(dikdortgen, ucgen, cember, besgen, cizgi, sekil);
             Refresh();
         }
 

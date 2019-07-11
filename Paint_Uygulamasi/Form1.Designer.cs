@@ -117,7 +117,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(20, 446);
+            this.panel2.Size = new System.Drawing.Size(20, 409);
             this.panel2.TabIndex = 1;
             // 
             // panel3
@@ -126,7 +126,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(1081, 100);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(14, 446);
+            this.panel3.Size = new System.Drawing.Size(14, 409);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -142,7 +142,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(20, 525);
+            this.panel5.Location = new System.Drawing.Point(20, 488);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1061, 21);
             this.panel5.TabIndex = 4;
@@ -152,7 +152,7 @@
             this.Cizim_Alani.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Cizim_Alani.Location = new System.Drawing.Point(20, 121);
             this.Cizim_Alani.Name = "Cizim_Alani";
-            this.Cizim_Alani.Size = new System.Drawing.Size(1061, 404);
+            this.Cizim_Alani.Size = new System.Drawing.Size(1061, 367);
             this.Cizim_Alani.TabIndex = 5;
             this.Cizim_Alani.Paint += new System.Windows.Forms.PaintEventHandler(this.Cizim_Alani_Paint);
             this.Cizim_Alani.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cizim_Alani_MouseDown);
@@ -324,7 +324,7 @@
             this.RenkPaneli.Controls.Add(this.pb_Yellow);
             this.RenkPaneli.Controls.Add(this.pb_Orange);
             this.RenkPaneli.Controls.Add(this.pb_Red);
-            this.RenkPaneli.Location = new System.Drawing.Point(472, 3);
+            this.RenkPaneli.Location = new System.Drawing.Point(463, 3);
             this.RenkPaneli.Name = "RenkPaneli";
             this.RenkPaneli.Size = new System.Drawing.Size(188, 62);
             this.RenkPaneli.TabIndex = 0;
@@ -669,7 +669,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1095, 546);
+            this.ClientSize = new System.Drawing.Size(1095, 509);
             this.Controls.Add(this.Cizim_Alani);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);

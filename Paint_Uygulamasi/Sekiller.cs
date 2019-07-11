@@ -209,34 +209,37 @@ namespace Paint_Uygulamasi
     class Cizgi : Sekiller
     {
 
-        List<Point> cizgiler = new List<Point>();
+        Point p1, p2;
         public Cizgi(string name, int x , int y,Pen kalem)
         {
+            this.Secilmismi = false;
             this.sekilAd = name;
             this.BaslaX = x;
             this.BaslaY = y;
             this.Kalem = kalem;
-            cizgiler.Add(new Point(x, y));
+            p1 = new Point(BaslaX, BaslaY);
+            p2 = new Point(BaslaX, BaslaY);
         }
 
         public override void Ciz(PaintEventArgs e)
         {
-            for (int i = 0; i < cizgiler.Count - 2; i++)
-            {
-                e.Graphics.DrawLine(Kalem, cizgiler[i], cizgiler[i + 1]);
-            }
+            e.Graphics.DrawLine(Kalem, p1, p2);
         }
         public void Guncelle(int x, int y)
         {
-            Point p = new Point(x, y);
-            cizgiler.Add(p);
-
+            p2 = new Point(x, y);
+            this.Genislik = x - BaslaX;
+            this.Yukseklik = y - BaslaY;
         }
+
         public List<Point> NoktaGetir()
         {
-            return cizgiler;
-        }
+            List<Point> noktalar = new List<Point>();
+            noktalar.Add(p1);
+            noktalar.Add(p2);
 
+            return noktalar;
+        }
 
     }
 

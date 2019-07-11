@@ -14,7 +14,7 @@ namespace Paint_Uygulamasi
         OpenFileDialog ofd = new OpenFileDialog();
         SaveFileDialog sfd = new SaveFileDialog();
 
-        public void DosyaOku(Dikdortgen dikdortgen, Ucgen ucgen, Cember cember, Besgen besgen, List<Sekiller> sekiller)
+        public void DosyaOku(Dikdortgen dikdortgen, Ucgen ucgen, Cember cember, Besgen besgen, Cizgi cizgi, Sekiller sekil)
         {
             ofd.Filter = "text Files (*.txt) | *.txt";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -22,7 +22,7 @@ namespace Paint_Uygulamasi
                 FileStream fs = new FileStream(ofd.FileName, FileMode.Open, FileAccess.Read);
                 StreamReader sr = new StreamReader(fs);
 
-                sekiller.Clear();
+                sekil.sekillers.Clear();
                 string[] veriler = new string[10];
 
 
@@ -36,44 +36,49 @@ namespace Paint_Uygulamasi
                         dikdortgen = new Dikdortgen("Dikdortgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
                         dikdortgen.Genislik = Convert.ToInt16(veriler[4]);
                         dikdortgen.Yukseklik = Convert.ToInt16(veriler[5]);
-                        sekiller.Add(dikdortgen);
+                        sekil.sekillers.Add(dikdortgen);
                     }
                     else if (veriler[0] == "Ucgen")
                     {
                         ucgen = new Ucgen("Ucgen", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[8]))))), ((int)(((byte)(Convert.ToInt16(veriler[9]))))), ((int)(((byte)(Convert.ToInt16(veriler[10])))))), Convert.ToInt16(veriler[11])));
                         ucgen.Guncelle(Convert.ToInt16(veriler[4]), Convert.ToInt16(veriler[5]));
-                        sekiller.Add(ucgen);
+                        ucgen.points = ucgen.NoktaGetir();
+                        sekil.sekillers.Add(ucgen);
+                        
                     }
                     else if (veriler[0] == "Cember")
                     {
                         cember = new Cember("Cember", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
                         cember.Genislik = Convert.ToInt16(veriler[4]);
                         cember.Yukseklik = Convert.ToInt16(veriler[5]);
-                        sekiller.Add(cember);
+                        sekil.sekillers.Add(cember);
 
                     }
                     else if (veriler[0] == "Besgen")
                     {
                         besgen = new Besgen("Besgen", Convert.ToInt16(veriler[5]), Convert.ToInt16(veriler[2]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
                         besgen.Guncelle(Convert.ToInt16(veriler[3]), Convert.ToInt16(veriler[4]));
-                        sekiller.Add(besgen);
+                        besgen.points = besgen.NoktaGetir();
+                        sekil.sekillers.Add(besgen);
 
+                    }
+                    else if (veriler[0] == "Cizgi")
+                    {
+                        cizgi = new Cizgi("Cizgi", Convert.ToInt16(veriler[2]), Convert.ToInt16(veriler[3]), new Pen(System.Drawing.Color.FromArgb(((int)(((byte)(Convert.ToInt16(veriler[6]))))), ((int)(((byte)(Convert.ToInt16(veriler[7]))))), ((int)(((byte)(Convert.ToInt16(veriler[8])))))), Convert.ToInt16(veriler[9])));
+                        cizgi.Guncelle(Convert.ToInt16(veriler[4]), Convert.ToInt16(veriler[5]));
+                        cizgi.points = cizgi.NoktaGetir();
+                        sekil.sekillers.Add(cizgi);
                     }
 
                     veri = sr.ReadLine();
                 }
                 
-
-
-
-
-
                 sr.Close();
                 fs.Close();
             }
 
         }
-        public void DosyaYaz(Dikdortgen dikdortgen, Ucgen ucgen, Cember cember, Besgen besgen, List<Sekiller> sekiller)
+        public void DosyaYaz(Dikdortgen dikdortgen, Ucgen ucgen, Cember cember, Besgen besgen,Cizgi cizgi, List<Sekiller> sekiller)
         {
             sfd.InitialDirectory = @"./";
             sfd.Filter = "text Files (*.txt) | *.txt";
@@ -95,6 +100,8 @@ namespace Paint_Uygulamasi
                             sw.WriteLine(item.sekilAd + " : " + item.BaslaX + " " + item.BaslaY + " " + item.Genislik + " " + item.Yukseklik + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
                         else if (item.sekilAd == "Besgen")
                             sw.WriteLine(item.sekilAd + " : " + item.points[0].Y + " " + item.points[1].X + " " + item.points[2].Y + " " + item.points[4].X + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
+                        else if (item.sekilAd == "Cizgi")
+                            sw.WriteLine(item.sekilAd + " : " + item.points[0].X + " " + item.points[0].Y + " " + item.points[1].X + " " + item.points[1].Y + " " + item.Kalem.Color.R + " " + item.Kalem.Color.G + " " + item.Kalem.Color.B + " " + item.Kalem.Width);
                     }
                 }
                 catch (Exception err)
