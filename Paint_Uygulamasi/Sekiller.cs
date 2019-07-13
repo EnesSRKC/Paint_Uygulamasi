@@ -94,14 +94,17 @@ namespace Paint_Uygulamasi
     class Ucgen:Sekiller
     {
         Point p1,p2,p3;
-        int basX, basY;
+        int BasX, BasY;
         public Ucgen(string ad, int x, int y, Pen kalem)
         {
             this.Secilmismi = false;
             this.sekilAd = ad;
-            this.basX = x;
-            this.basY = y;
             this.Kalem = kalem;
+            this.BaslaX = x;
+            this.BaslaY = y;
+            BasX = x;
+            BasY = y;
+
         }
 
         public override void Ciz(PaintEventArgs e)
@@ -112,14 +115,44 @@ namespace Paint_Uygulamasi
         }
         public void Guncelle(int x, int y)
         {
-            
-            p1 = new Point(basX, basY);
-            p2 = new Point(x, y);
-            p3 = new Point(basX - (x - basX), y);
-            this.BaslaX = basX - (x - basX);
-            this.BaslaY = basY;
-            this.Genislik = (x - basX)*2;
-            this.Yukseklik = y - basY;
+            if(x > BasX && y > BasY)
+            {
+                this.Genislik = x - BasX;
+                this.Yukseklik = y - BasY;
+                p1 = new Point(Genislik/2 + BasX, BasY);
+                p2 = new Point(x, y);
+                p3 = new Point(BasX, y);
+            }
+            else if(x < BasX && y > BasY)
+            {
+                this.BaslaX = x;
+                this.BaslaY = BasY;
+                this.Genislik = BasX - x;
+                this.Yukseklik = y - BasY;
+                p1 = new Point(Genislik / 2 + x, BasY);
+                p2 = new Point(x, y);
+                p3 = new Point(BasX, y);
+            }
+            else if(x < BasX && y < BasY)
+            {
+                this.BaslaX = x;
+                this.BaslaY = y;
+                this.Genislik = BasX - x;
+                this.Yukseklik = BasY - y;
+                p1 = new Point(Genislik / 2 + x, y);
+                p2 = new Point(x, BasY);
+                p3 = new Point(BasX, BasY);
+            }
+            else if(x > BasX && y < BasY)
+            {
+                this.BaslaX = BasX;
+                this.BaslaY = y;
+                this.Genislik = x - BasX;
+                this.Yukseklik = BasY - y;
+                p1 = new Point(Genislik / 2 + BasX, y);
+                p2 = new Point(x, BasY);
+                p3 = new Point(BasX, BasY);
+            }
         }
 
         public List<Point> NoktaGetir()
@@ -191,6 +224,7 @@ namespace Paint_Uygulamasi
     class Besgen : Sekiller
     {
         Point p1, p2, p3, p4, p5;
+        int BasX, BasY;
 
         public Besgen(string ad, int x, int y, Pen kalem)
         {
@@ -198,6 +232,8 @@ namespace Paint_Uygulamasi
             this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
+            BasX = x;
+            BasY = y;
             this.Kalem = kalem;
         }
 
@@ -212,13 +248,46 @@ namespace Paint_Uygulamasi
 
         public void Guncelle(int x, int y)
         {
-            p1 = new Point(BaslaX + (x -BaslaX)/2, BaslaY);
-            p2 = new Point(x, BaslaY + (y - BaslaY) / 3);
-            p3 = new Point(BaslaX + 3 * (x - BaslaX) / 4, y);
-            p4 = new Point(BaslaX + (x - BaslaX) / 4, y);
-            p5 = new Point(BaslaX, BaslaY + (y - BaslaY) / 3);
-            this.Genislik = x - BaslaX;
-            this.Yukseklik = y - BaslaY;
+            p1 = new Point(BasX + (x -BasX)/2, BasY);
+            p2 = new Point(x, BasY + (y - BasY) / 3);
+            p3 = new Point(BasX + 3 * (x - BasX) / 4, y);
+            p4 = new Point(BasX + (x - BasX) / 4, y);
+            p5 = new Point(BasX, BasY + (y - BasY) / 3);
+
+            if (x > BasX && y > BasY)
+            {
+                this.BaslaX = BasX;
+                this.BaslaY = BasY;
+                this.Genislik = x - BasX;
+                this.Yukseklik = y - BasY;
+                
+            }
+            else if (x < BasX && y > BasY)
+            {
+                this.BaslaX = x;
+                this.BaslaY = BasY;
+                this.Genislik = BasX - x;
+                this.Yukseklik = y - BasY;
+                
+            }
+            else if (x < BasX && y < BasY)
+            {
+                this.BaslaX = x;
+                this.BaslaY = y;
+                this.Genislik = BasX - x;
+                this.Yukseklik = BasY - y;
+                
+            }
+            else if (x > BasX && y < BasY)
+            {
+                this.BaslaX = BasX;
+                this.BaslaY = y;
+                this.Genislik = x - BasX;
+                this.Yukseklik = BasY - y;
+                
+            }
+
+
         }
 
         public List<Point> NoktaGetir()
@@ -238,12 +307,15 @@ namespace Paint_Uygulamasi
     {
 
         Point p1, p2;
+        int BasX, BasY;
         public Cizgi(string name, int x , int y,Pen kalem)
         {
             this.Secilmismi = false;
             this.sekilAd = name;
             this.BaslaX = x;
             this.BaslaY = y;
+            BasX = x;
+            BasY = y;
             this.Kalem = kalem;
             p1 = new Point(BaslaX, BaslaY);
             p2 = new Point(BaslaX, BaslaY);
@@ -256,8 +328,37 @@ namespace Paint_Uygulamasi
         public void Guncelle(int x, int y)
         {
             p2 = new Point(x, y);
-            this.Genislik = x - BaslaX;
-            this.Yukseklik = y - BaslaY;
+
+            if (x > BasX && y >= BasY)
+            {
+                this.Genislik = x - BasX;
+                this.Yukseklik = y - BasY;
+                this.BaslaX = BasX;
+                this.BaslaY = BasY;
+            }
+            else if (x <= BasX && y > BasY)
+            {
+                
+                this.BaslaX = x;
+                this.BaslaY = BasY;
+                this.Genislik = BasX - x;
+                this.Yukseklik = y - BasY;
+                
+            }
+            else if (x < BasX && y <= BasY)
+            {
+                this.BaslaX = x;
+                this.BaslaY = y;
+                this.Genislik = BasX - x;
+                this.Yukseklik = BasY - y;
+            }
+            else if (x > BasX && y < BasY)
+            {
+                this.BaslaX = BasX;
+                this.BaslaY = y;
+                this.Genislik = x - BasX;
+                this.Yukseklik = BasY - y;
+            } 
         }
 
         public List<Point> NoktaGetir()

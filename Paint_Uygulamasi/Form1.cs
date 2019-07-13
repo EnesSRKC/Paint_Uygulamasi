@@ -65,7 +65,7 @@ namespace Paint_Uygulamasi
         bool besgenSecilimi = false;
         bool selSecilimi = false;
         bool copTiklandimi = false;
-
+        bool secimDogrumu = false;
 
 
 
@@ -87,8 +87,17 @@ namespace Paint_Uygulamasi
             Y = e.Y;
             isMouseDown = true;
             Color renk = pb_RenkSecim.BackColor;
-            int boyut = Convert.ToInt16(comboBox1.Text);
-            pen = new Pen(renk, boyut);
+            int boyut;
+            try
+            {
+                boyut = Convert.ToInt16(comboBox1.Text);
+                pen = new Pen(renk, boyut);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Boyut olarak tam sayı giriniz, ondalıklı sayılar desteklenmemektedir.", "Uyarı");
+                isMouseDown = false;
+            }
 
             if (dikSecilimi)
                 dikdortgen = new Dikdortgen("Dikdortgen", X, Y, pen);
@@ -102,14 +111,17 @@ namespace Paint_Uygulamasi
                 besgen = new Besgen("Besgen", X, Y, pen);
             else if (selSecilimi)
             {
-                
-                if(sekil.sekillers.Count > 0)
+
+                if (sekil.sekillers.Count > 0)
                 {
                     for (int i = sekil.sekillers.Count - 1; i >= 0; i--)
                     {
-                        //Sekil koordinatlarinin icerisine tiklanip tiklanmadigi kontrol ediliyor.
-                        if (e.X > sekil.sekillers[i].BaslaX && e.X < sekil.sekillers[i].BaslaX + sekil.sekillers[i].Genislik && e.Y > sekil.sekillers[i].BaslaY && e.Y < sekil.sekillers[i].BaslaY + sekil.sekillers[i].Yukseklik)
+                        /*Sekil koordinatlarinin icerisine tiklanip tiklanmadigi kontrol ediliyor.
+                         * e.X ve e.Y' ye 10 eklenmesi veya cikarilmasi secme isleminin cok hassas olmamasini istedigimiz icindir.
+                         */
+                        if (e.X + 10 > sekil.sekillers[i].BaslaX && e.X - 10 <= sekil.sekillers[i].BaslaX + sekil.sekillers[i].Genislik && e.Y + 10 >= sekil.sekillers[i].BaslaY && e.Y - 10 <= sekil.sekillers[i].BaslaY + sekil.sekillers[i].Yukseklik)
                         {
+                            secimDogrumu = true;
                             secim = new Secim(sekil.sekillers[i].BaslaX - 20, sekil.sekillers[i].BaslaY - 20, sekil.sekillers[i].Genislik, sekil.sekillers[i].Yukseklik, secimKalem);
                             foreach (var item in sekil.sekillers)
                             {
@@ -117,12 +129,16 @@ namespace Paint_Uygulamasi
                                     item.Secilmismi = true;
                                 else
                                     item.Secilmismi = false;
-                                
+
                             }
                             break;
                         }
+                        else
+                            secimDogrumu = false;
                     }
                 }
+                else
+                    secimDogrumu = false;
             }
             Refresh();
         }
@@ -226,7 +242,7 @@ namespace Paint_Uygulamasi
                 cember.Ciz(e);
             else if (besgenSecilimi)
                 besgen.Ciz(e);
-            else if (selSecilimi && secim != null && !copTiklandimi)
+            else if (selSecilimi && secim != null && !copTiklandimi && secimDogrumu)
                 secim.Ciz(e);
 
         }
