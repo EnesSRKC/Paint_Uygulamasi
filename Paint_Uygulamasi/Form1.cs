@@ -153,7 +153,7 @@ namespace Paint_Uygulamasi
                 }
                 else if (cemberSecilimi)
                 {
-                    cember.Guncelle(X, Y, e.X - X, e.Y - Y);
+                    cember.Guncelle(X, Y, e.X, e.Y);
                     Refresh();
                 }
                 else if (besgenSecilimi)

@@ -112,6 +112,7 @@ namespace Paint_Uygulamasi
         }
         public void Guncelle(int x, int y)
         {
+            
             p1 = new Point(basX, basY);
             p2 = new Point(x, y);
             p3 = new Point(basX - (x - basX), y);
@@ -135,13 +136,15 @@ namespace Paint_Uygulamasi
 
     class Cember : Sekiller
     {
-        
+        int basX, basY;
         public Cember(string ad, int x, int y, Pen kalem)
         {
             this.Secilmismi = false;
             this.sekilAd = ad;
             this.BaslaX = x;
             this.BaslaY = y;
+            basX = x;
+            basY = y;
             this.Kalem = kalem;
         }
 
@@ -150,12 +153,37 @@ namespace Paint_Uygulamasi
             e.Graphics.DrawEllipse(Kalem, BaslaX, BaslaY, Genislik, Yukseklik);
         }
 
-        public void Guncelle(int x, int y, int genislik, int yukseklik)
+        public void Guncelle(int x, int y, int suanX, int suanY)
         {
-            this.BaslaX = x;
-            this.BaslaY = y;
-            this.Genislik = genislik;
-            this.Yukseklik = yukseklik;
+            if (basX < suanX && basY < suanY)
+            {
+                this.BaslaX = x;
+                this.BaslaY = y;
+                Genislik = suanX - BaslaX;
+                Yukseklik = suanY - BaslaY;
+            }
+            else if (basX > suanX && basY < suanY)
+            {
+                BaslaX = suanX;
+                BaslaY = y;
+                Genislik = basX - suanX;
+                Yukseklik = suanY - basY;
+            }
+            else if (basX > suanX && basY > suanY)
+            {
+                BaslaX = suanX;
+                BaslaY = suanY;
+                Genislik = basX - suanX;
+                Yukseklik = basY - suanY;
+            }
+            else if (basX < suanX && basY > suanY)
+            {
+                BaslaX = x;
+                BaslaY = suanY;
+                Genislik = suanX - basX;
+                Yukseklik = basY - suanY;
+            }
+
         }
 
     }
