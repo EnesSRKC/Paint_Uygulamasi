@@ -8,7 +8,7 @@
 > * Mail: enes.sirkecoglu@ogr.sakarya.edu.tr
 
 ## Uygulama Görünümü ve Kullanılanlar
- ![Resim](Paint_Uygulamasi/Resources/pu_ss1.JPG)
+ ![Resim](/Paint_Uygulamasi/Resources/pu_ss1.JPG)
 
 * Renk panelinde 'PictureBox' öğeleri kullanılmıştır. Her öğenin arkaplanı temsil ettiği renge göre seçilmiştir.
 * İkonlar internet üzerinden bulunup 'Paint.net' programıyla aynı renk tonu ve boyuta getirilmiştir.
@@ -24,7 +24,7 @@
 * Renk bilgileri rgb değerlerine göre dosyaya yazılmaktadır.
 * **Dosya Oku:** Bu fonksiyonda 'OpenFileDialog' kullanılmıştır ve okuma işlemini 'txt' dosyalarında yapacağımız için ona göre filtreleme yapılmıştır.
 * Okunacak 'txt' dosyasında şekillerin bilgileri bulunmaktadır.
-![Resim](Paint_Uygulamasi/Resources/pu_ss2.JPG)
+![Resim](/Paint_Uygulamasi/Resources/pu_ss2.JPG)
 * Dosya okuma işlemi başlarken öncelikle şekillerin tutuldu liste temizlenir. Yeni okunan değerlere göre şekiller kendi cizme fonksiyonları ile yeniden çizilir ve listeye eklenir.
 
 
