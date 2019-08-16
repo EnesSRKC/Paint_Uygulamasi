@@ -8,7 +8,7 @@
 > * Mail: enes.sirkecoglu@ogr.sakarya.edu.tr
 
 ## Uygulama Görünümü ve Kullanılanlar
-![Resim](Paint_Uygulamasi/Resources/pu_ss1.jpg)
+ ![Resim](/Paint_Uygulamasi/Resources/pu_ss1.JPG)
 
 * Renk panelinde 'PictureBox' öğeleri kullanılmıştır. Her öğenin arkaplanı temsil ettiği renge göre seçilmiştir.
 * İkonlar internet üzerinden bulunup 'Paint.net' programıyla aynı renk tonu ve boyuta getirilmiştir.
@@ -24,7 +24,7 @@
 * Renk bilgileri rgb değerlerine göre dosyaya yazılmaktadır.
 * **Dosya Oku:** Bu fonksiyonda 'OpenFileDialog' kullanılmıştır ve okuma işlemini 'txt' dosyalarında yapacağımız için ona göre filtreleme yapılmıştır.
 * Okunacak 'txt' dosyasında şekillerin bilgileri bulunmaktadır.
-![Resim](Paint_Uygulamasi/Resources/pu_ss2.jpg)
+![Resim](/Paint_Uygulamasi/Resources/pu_ss2.JPG)
 * Dosya okuma işlemi başlarken öncelikle şekillerin tutuldu liste temizlenir. Yeni okunan değerlere göre şekiller kendi cizme fonksiyonları ile yeniden çizilir ve listeye eklenir.
 
 
@@ -40,7 +40,7 @@
 
 #### Programın Farklı Girdilere Karşı Davranışları
 * Boyut seçilirken eğer ondalıklı bir sayı girilirse uyarı mesajı gösterilmektedir. Ondalıklı sayı girildiğinde 'comboBox'tan alınan değer 'string' değerinden 'int' türüne dönüştürüldüğü için hata ile karşılaşılmaktadır.
-![Resim](Paint_Uygulamasi/Resources/pu_ss3.jpg)
+![Resim](Paint_Uygulamasi/Resources/pu_ss3.JPG)
 
 #### Yapım Aşamasında Karşılaşılan Zorluklar
 * Şekil çizmenin yanı sıra kalem ile serbest çizme eklenmişti fakat bu çizme işleminde çok fazla 'Point' nesnesi oluştuğundan dolayı performans kaybı oluşmuştu. Bu sebepten dolayı serbest çizme işlemi yerine doğru çizimi eklenmiştir.
