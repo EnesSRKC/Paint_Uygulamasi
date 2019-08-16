@@ -1,4 +1,4 @@
-# Paint_Uygulamasi
+# Paint Uygulaması
 > * _Microsoft Visual Studio Communtiy 2019
  Sürüm 16.1.1_ ortamında
  C# kullanılarak yapılmıştır.
