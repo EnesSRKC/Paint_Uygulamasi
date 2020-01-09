@@ -30,8 +30,8 @@
 
 #### 'Sekiller' Sınıfı
 * Bu sınıf içerisinde şekillerin genel olarak ortak özelliklerini barındırmaktadır.
-* Diğer sınıflar 'Sekiller' sınıfından kalıtım alacaklardır.
-* Her sınıfta bulunan 'Ciz' fonksiyona erişim için bu fonksiyonda **virtual** olarak tanımlanmıştır.
+* Diğer sınıflar 'Sekiller' sınıfından kalıtım almaktadır.
+* 'Ciz' fonksiyonuna diğer sınıflardan erişim için bu fonksiyon **virtual** olarak tanımlanmıştır.
 
 #### Genel Olarak 'Sekiller' İçerisindeki Sınıfların Özellikleri
 * Yapıcı fonksiyonunda başlangıç koordinatları, oluşturulan şeklin ismi ve kalem nesnesi tanımlanmaktadır.
